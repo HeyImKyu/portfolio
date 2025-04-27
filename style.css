@@ -345,3 +345,12 @@ p {
 img.emoji {
     vertical-align: -10%;
 }
+
+.bold-text {
+    font-weight: bold;
+}
+
+ul.socials {
+    margin-left: -25px;
+    font-size: 1.2em;
+}
