@@ -41,17 +41,15 @@ html, body {
 }
 
 .cards {
-    height: 60vh;
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .card-uwu {
     overflow: auto;
-    margin: 10px;
+    margin: 20px;
     background: #ffffff;
-    width: 25vw;
-    height: 25vw;
     align-items: center;
     text-align: center;
     border-radius: 1.4vw;
@@ -59,6 +57,37 @@ html, body {
 
     background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('noise.svg');
     background-attachment: fixed;
+    grid-column: span 2;
+}
+
+.kyuties {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.kyuties-card {
+    overflow: auto;
+    margin: 10px;
+    width: 25vw;
+    height: 25vw;
+    background: #ffffff;
+    align-items: center;
+    text-align: center;
+    border-radius: 1.4vw;
+    padding: 20px;
+
+    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('noise.svg');
+    background-attachment: fixed;
+}
+
+.card-header {
+    grid-column: 2 / span 2;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Righteous';
+    font-weight: 150;
+    font-style: italic;
+    font-size: 24px;
 }
 
 .card-uwu:hover {
