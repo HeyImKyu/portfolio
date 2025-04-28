@@ -56,107 +56,120 @@
 
 <div class="cards">
     <div class="card-uwu card-header"
-        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
         <h1 class="card-header">Click on any of these cards to find out more about them!</h1>
     </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/Ax-Shell'"
-         data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">Kyu's Ax-Shell</h1>
-        <p>My heavily modified fork of <a class="link" href="https://github.com/Axenide/">Axenide's</a> Ax-Shell</p>
-        <p>Ax-Shell is a bar for the <a class="link" href="https://hyprland.org/">Hyprland</a> window manager</p>
-        <p>A lot of my implementation has been merged into the base implementation now, but i still like to keep working on my own fork for my custom needs and wants</p>
-        <p>It is hosted using <a href="https://github.com/Fabric-Development/fabric" class="link">Fabric</a>, a python library for hosting bars or arbitrary windows in wayland compositors</p>
-        <p>For more information on Fabric, please check the card on the right</p>
-        <center>
-            <img style="max-width: 85%; max-height: 75%;" src="https://github.com/user-attachments/assets/f52da9e7-31dd-4e7f-b0bb-f859816cde27" alt="Image of Ax-Shell">
-        </center>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/UwUDev/balamod'"
-         data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">Nix User Repository & Fabric</h1>
-        <p><a href="https://wiki.ffpy.org/" class="link">Fabric</a> is a python library for hosting bars or arbitrary widgets in wayland compositors</p>
-        <p>I improved the usability of fabric for NixOs users a lot by bringing the project to the <a href="https://github.com/nix-community/NUR" class="link">Nix User Repository</a></p>
-        <p>For this i have my <a href="https://nur.nix-community.org/repos/heyimkyu/" class="link">own user repo</a> that contains the important programs and libraries for running fabric on NixOs <a href="https://github.com/HeyImKyu/nur-packages" class="link">(Source code)</a></p>
-        <p>This also includes documentation of how to use my repositories which can be found <a href="https://github.com/HeyImKyu/fabric-flakes-example" class="link">here</a></p>
-        <p>I also added the implementation for <a href="https://github.com/HeyImKyu/fabric-cli" class="link">fabric-cli</a> for NixOs, as this was not implemented before</p>
-        <center>
-             <iframe style="width: 100%; height: 400px;" src="https://wiki.ffpy.org/" frameborder="0"></iframe>
-        </center>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/VRCSTT'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">VRCSTT</h1>
-        <p>This project was made to be able to use Speach-To-Text and speech recognition software with VRChat</p>
-        <p>It is written in C# / WPF and utilizes <a href="https://azure.microsoft.com/en-us/products/ai-services/ai-speech" class="link">Azure AI Speech</a> to transcribe spoken words</p>
-        <p>Afterwards the recognized text is sent to VRChat using the <a href="https://ccrma.stanford.edu/groups/osc/index.html" class="link">OSC protocol</a> to be displayed in-game</p>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/bulk-downloader-for-reddit'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">Bulk Downloader for Reddit</h1>
-        <p>I made a few modifications to the dependencies of Bulk Downloader for Reddit (bdfr) which was broken due to dependency issues</p>
-        <p>Because of my fixes, it can now correctly be installed and used again with</p>
-        <pre><code class="hero nohighlight">
-    python -m pip install --index-url https://test.pypi.org/simple/
-    --extra-index-url https://pypi.org/simple bdfr-kyu
-        </code></pre>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/unzstd.yazi'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">unzstd.yazi</h1>
-        <p>A <a href="https://yazi-rs.github.io/" class="link">Yazi</a> plugin to unpack a <a href="https://facebook.github.io/zstd/" class="link">zstd</a> compressed archive</p>
-        <p>Written in lua and with configurable keybinds this plugin makes it easy to work with zstd archives, so no one has to use zip archives in modern times anymore :D</p>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/entrydns-updater'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">EntryDNS updater</h1>
-        <p>This scripts makes it easy to dynamically update your IP in an <a href="https://entrydns.net/" class="link">EntryDNS</a> entry when it changes</p>
-        <p>Just add the API keys of your A or AAAA Records from EntryDNS into the hosts file and execute it or let it be executed by a cron job</p>
-        <p>Simple as that ^-^</p>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/balamod/balamod'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">Balatro modding</h1>
-        <p>As a contributor to the <a href="https://github.com/balamod/balamod" class="link">balamod</a> modloader for the videogame <a href="https://www.playbalatro.com/" class="link">Balatro</a>, I of course also scripted my own mods:</p>
-        <div class="hero">
-            <ul>
-                <li><a href="https://github.com/HeyImKyu/balatro-money-cheat" class="link">Money Cheat</a></li>
-                <li><a href="https://github.com/HeyImKyu/balatro-gay" class="link">Straight->Gay Mod</a></li>
-                <li><a href="https://github.com/HeyImKyu/balatro-slutty-joker" class="link">Slutty Joker</a></li>
-            </ul>
+
+    <div id="column-l" class="cards-column">
+        <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/Ax-Shell'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">Kyu's Ax-Shell</h1>
+            <p>My heavily modified fork of <a class="link" href="https://github.com/Axenide/">Axenide's</a> Ax-Shell</p>
+            <p>Ax-Shell is a bar for the <a class="link" href="https://hyprland.org/">Hyprland</a> window manager</p>
+            <p>A lot of my implementation has been merged into the base implementation now, but i still like to keep working on my own fork for my custom needs and wants</p>
+            <p>It is hosted using <a href="https://github.com/Fabric-Development/fabric" class="link">Fabric</a>, a python library for hosting bars or arbitrary windows in wayland compositors</p>
+            <p>For more information on Fabric, please check the card on the right</p>
+            <center>
+                <img style="max-width: 85%; max-height: 75%;" src="https://github.com/user-attachments/assets/f52da9e7-31dd-4e7f-b0bb-f859816cde27" alt="Image of Ax-Shell">
+            </center>
         </div>
-        <p>And contributed to:</p>
-        <div class="hero">
-            <ul>
-                <li><a href="https://github.com/iJohnMaged/multi-jokers" class="link">John Maged's Multi Jokers</a></li>
-                <li>Creator Modpack & TV Show Modpack <br/>(private for now, but worked on with the very talented <a href="https://x.com/NEAT0QUEEN" class="link">Neato</a></li>
-            </ul>
+
+        <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/VRCSTT'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">VRCSTT</h1>
+            <p>This project was made to be able to use Speach-To-Text and speech recognition software with VRChat</p>
+            <p>It is written in C# / WPF and utilizes <a href="https://azure.microsoft.com/en-us/products/ai-services/ai-speech" class="link">Azure AI Speech</a> to transcribe spoken words</p>
+            <p>Afterwards the recognized text is sent to VRChat using the <a href="https://ccrma.stanford.edu/groups/osc/index.html" class="link">OSC protocol</a> to be displayed in-game</p>
+        </div>
+
+        <div class="card-uwu" onclick="document.location = 'https://github.com/balamod/balamod'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">Balatro modding</h1>
+            <p>As a contributor to the <a href="https://github.com/balamod/balamod" class="link">balamod</a> modloader for the videogame <a href="https://www.playbalatro.com/" class="link">Balatro</a>, I of course also scripted my own mods:</p>
+            <div class="hero">
+                <ul>
+                    <li><a href="https://github.com/HeyImKyu/balatro-money-cheat" class="link">Money Cheat</a></li>
+                    <li><a href="https://github.com/HeyImKyu/balatro-gay" class="link">Straight->Gay Mod</a></li>
+                    <li><a href="https://github.com/HeyImKyu/balatro-slutty-joker" class="link">Slutty Joker</a></li>
+                </ul>
+            </div>
+            <p>And contributed to:</p>
+            <div class="hero">
+                <ul>
+                    <li><a href="https://github.com/iJohnMaged/multi-jokers" class="link">John Maged's Multi Jokers</a></li>
+                    <li>Creator Modpack & TV Show Modpack <br/>(private for now, but worked on with the very talented <a href="https://x.com/NEAT0QUEEN" class="link">Neato</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/bulk-downloader-for-reddit'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">Bulk Downloader for Reddit</h1>
+            <p>I made a few modifications to the dependencies of Bulk Downloader for Reddit (bdfr) which was broken due to dependency issues</p>
+            <p>Because of my fixes, it can now correctly be installed and used again with</p>
+            <pre><code class="hero nohighlight">
+        python -m pip install --index-url https://test.pypi.org/simple/
+        --extra-index-url https://pypi.org/simple bdfr-kyu
+            </code></pre>
+        </div>
+
+        <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/unzstd.yazi'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">unzstd.yazi</h1>
+            <p>A <a href="https://yazi-rs.github.io/" class="link">Yazi</a> plugin to unpack a <a href="https://facebook.github.io/zstd/" class="link">zstd</a> compressed archive</p>
+            <p>Written in lua and with configurable keybinds this plugin makes it easy to work with zstd archives, so no one has to use zip archives in modern times anymore :D</p>
         </div>
     </div>
-    <div class="card-uwu" onclick="document.location = 'https://heyimkyu.github.io/Kyus-Toolkit/'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">Unity Editor Tools</h1>
-        <p>Although mainly made for VRChat avatar creation, these extensions come in very handy for any project that uses the <a href="https://unity.com/" class="link">Unity Engine</a></p>
-        <p>Easily installable using the VRChat content creator (VCC) by just clicking one button on the <a href="https://heyimkyu.github.io/Kyus-Toolkit/" class="link">toolkit's website</a></p>
-        <p>Alternatively, every plugin can be installed by itself, also by using the same website</p>
-        <p>My toolkit provides following tools:</p>
-        <div class="hero">
-            <ul>
-                <li><a href="https://github.com/HeyImKyu/AnimatorEditor" class="link">Animator Editor</a><br/>making working with Animator Controllers 100 times easier. Just select what type of layer you want to create and the tool will do the parametrizing for you!</li>
-                <br/>
-                <li><a href="https://github.com/HeyImKyu/PhysboneEditor" class="link">Physbone Editor</a><br/>set opacity and visibility settings of all VRCPhysbone components in one click!</li>
-                <br/>
-                <li><a href="https://github.com/HeyImKyu/BoundsEditor" class="link">Bounds Editor</a><br/>re-calculates the AABB boundaries of any Unity object in your scene!</li>
-                <br/>
-                <li><a href="https://github.com/HeyImKyu/MatCopy" class="link">Mat Copy</a><br/>able to copy the entire material list from one object to another to avoid endless manual copy-pasting</li>
-            </ul>
+    
+    <div id="column-r" class="cards-column">
+        <div class="card-uwu" onclick="document.location = 'https://github.com/UwUDev/balamod'"
+            data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">Nix User Repository & Fabric</h1>
+            <p><a href="https://wiki.ffpy.org/" class="link">Fabric</a> is a python library for hosting bars or arbitrary widgets in wayland compositors</p>
+            <p>I improved the usability of fabric for NixOs users a lot by bringing the project to the <a href="https://github.com/nix-community/NUR" class="link">Nix User Repository</a></p>
+            <p>For this i have my <a href="https://nur.nix-community.org/repos/heyimkyu/" class="link">own user repo</a> that contains the important programs and libraries for running fabric on NixOs <a href="https://github.com/HeyImKyu/nur-packages" class="link">(Source code)</a></p>
+            <p>This also includes documentation of how to use my repositories which can be found <a href="https://github.com/HeyImKyu/fabric-flakes-example" class="link">here</a></p>
+            <p>I also added the implementation for <a href="https://github.com/HeyImKyu/fabric-cli" class="link">fabric-cli</a> for NixOs, as this was not implemented before</p>
+            <center>
+                <iframe style="width: 100%; height: 400px;" src="https://wiki.ffpy.org/" frameborder="0"></iframe>
+            </center>
         </div>
-    </div>
-    <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/unzstd.yazi'"
-    data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
-        <h1 class="card-title">Stable Diffusion web UI</h1>
-        <p>Contributor to <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" class="link">Stable Diffusion web UI</a>, one of the best UIs to generate images using AI on your own machine</p>
-        <p>I added the possibility to view created images in batch generation mode when each batch is done. <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/4178" class="link">PR #4178</a></p>
-        <p>This adds a lot of usability to the frontend as you can see what is being generated and don't have to waste minutes or even hours of processing power if something isn't the way you like it</p>
+
+        <div class="card-uwu" onclick="document.location = 'https://heyimkyu.github.io/Kyus-Toolkit/'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">Unity Editor Tools</h1>
+            <p>Although mainly made for VRChat avatar creation, these extensions come in very handy for any project that uses the <a href="https://unity.com/" class="link">Unity Engine</a></p>
+            <p>Easily installable using the VRChat content creator (VCC) by just clicking one button on the <a href="https://heyimkyu.github.io/Kyus-Toolkit/" class="link">toolkit's website</a></p>
+            <p>Alternatively, every plugin can be installed by itself, also by using the same website</p>
+            <p>My toolkit provides following tools:</p>
+            <div class="hero">
+                <ul>
+                    <li><a href="https://github.com/HeyImKyu/AnimatorEditor" class="link">Animator Editor</a><br/>making working with Animator Controllers 100 times easier. Just select what type of layer you want to create and the tool will do the parametrizing for you!</li>
+                    <br/>
+                    <li><a href="https://github.com/HeyImKyu/PhysboneEditor" class="link">Physbone Editor</a><br/>set opacity and visibility settings of all VRCPhysbone components in one click!</li>
+                    <br/>
+                    <li><a href="https://github.com/HeyImKyu/BoundsEditor" class="link">Bounds Editor</a><br/>re-calculates the AABB boundaries of any Unity object in your scene!</li>
+                    <br/>
+                    <li><a href="https://github.com/HeyImKyu/MatCopy" class="link">Mat Copy</a><br/>able to copy the entire material list from one object to another to avoid endless manual copy-pasting</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/unzstd.yazi'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">Stable Diffusion web UI</h1>
+            <p>Contributor to <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" class="link">Stable Diffusion web UI</a>, one of the best UIs to generate images using AI on your own machine</p>
+            <p>I added the possibility to view created images in batch generation mode when each batch is done. <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/4178" class="link">PR #4178</a></p>
+            <p>This adds a lot of usability to the frontend as you can see what is being generated and don't have to waste minutes or even hours of processing power if something isn't the way you like it</p>
+        </div>
+
+        <div class="card-uwu" onclick="document.location = 'https://github.com/HeyImKyu/entrydns-updater'"
+        data-tilt data-tilt-speed="1200" data-tilt-easing="cubic-bezier(.03,.98,.52,.99)" data-tilt-reverse="1" data-tilt-max="3">
+            <h1 class="card-title">EntryDNS updater</h1>
+            <p>This scripts makes it easy to dynamically update your IP in an <a href="https://entrydns.net/" class="link">EntryDNS</a> entry when it changes</p>
+            <p>Just add the API keys of your A or AAAA Records from EntryDNS into the hosts file and execute it or let it be executed by a cron job</p>
+            <p>Simple as that ^-^</p>
+        </div>
     </div>
 </div>
 

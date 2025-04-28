@@ -46,9 +46,15 @@ html, body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.cards-column {
+    display: flexbox;
+    flex-direction: column;
+    grid-column: span 2;
+}
+
 .card-uwu {
     overflow: auto;
-    margin: 20px;
+    margin: 40px 20px;
     background: #ffffff;
     align-items: center;
     text-align: center;
@@ -57,7 +63,6 @@ html, body {
 
     background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('noise.svg');
     background-attachment: fixed;
-    grid-column: span 2;
 }
 
 .kyuties {
@@ -88,6 +93,7 @@ html, body {
     font-weight: 150;
     font-style: italic;
     font-size: 24px;
+    margin: 0px;
 }
 
 .card-uwu:hover {
