@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "build": "env NODE_ENV=production npx @11ty/eleventy --pathprefix 'portfolio'"
+    "build": "env NODE_ENV=production npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
