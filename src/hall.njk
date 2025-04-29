@@ -7,7 +7,7 @@ layout: base.njk
 {% from "src/partials/navbar.njk" import navbar %}
 
 
-{{ navbar(title, showHall=false) }}
+{{ navbar(showHall=false) }}
 
 <div class="kyuties">
   {% call kyuties_card(
@@ -31,4 +31,4 @@ layout: base.njk
   {% endcall %}
 </div>
 
-<script src="{{ "js/tilt.min.js" | url }}"></script>
+<script src="{{ "/js/tilt.min.js" | url }}"></script>

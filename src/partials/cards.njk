@@ -11,7 +11,7 @@
 </div>
 {% endmacro %}
 
-{% macro kyuties_card(name, url, url_short, img_src, img_alt, extra_classes='') %}
+{% macro kyuties_card(name, url, url_short, img_src, img_alt, description, extra_classes='') %}
 <div class="kyuties-card {{ extra_classes }}" onclick="document.location = '{{ url }}'" 
   data-tilt
   data-tilt-speed="1200"
