@@ -1,3 +1,9 @@
+# direnv
+.direnv/
+
+# Built site
+_site/
+
 # Logs
 logs
 *.log
