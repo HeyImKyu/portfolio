@@ -1,9 +1,9 @@
 {% macro navbar(title="Kyu's Portfolio :3", showAbout=true, showHall=true) %}
 <div class="nav">
-    <a class="title" href="/">{{ title }}</a>
+    <a class="title" href="{{ "/" | url }}">{{ title }}</a>
     <div class="menu">
-        {% if showAbout %} <a href="/about">About Me</a> {% endif %}
-        {% if showHall %} <a href="/hall">Kyuties</a> {% endif %}
+        {% if showAbout %} <a href="{{ "/about" | url }}">About Me</a> {% endif %}
+        {% if showHall %} <a href="{{ "/hall" | url }}">Kyuties</a> {% endif %}
         <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
     </div>
 </div>
