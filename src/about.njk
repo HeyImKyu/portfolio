@@ -1,52 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Kyu's about me</title>
-    <link rel="stylesheet" href="style.css">
+---
+title: "Kyu's About me"
+layout: base.njk
+---
 
-    <link rel="icon"
-          type="image/png"
-          href="https://cdn.upload.systems/uploads/x9ObtU5U.png">
+{% from "src/partials/navbar.njk" import navbar %}
 
-    <meta content="Kyu's about me" property="og:title"/>
-    <meta content="Nice embed you got there :3" property="og:description"/>
-    <meta content="https://kyuti.es/" property="og:url"/>
-    <meta content="https://kyuti.es/favicon.ico" property="og:image"/>
-    <meta content="#B018EC" data-react-helmet="true" name="theme-color"/>
-    <meta content="Kyuti.es" property="og:site_name">
 
-    <style>
-        /*custom css only for about page*/
-        p {
-            font-size: 1.2em;
-        }
-        img.emoji {
-            height: 1.1em;
-            width: 1.1em;
-        }
-    </style>
-</head>
-<body>
-<div class="nav">
-    <a href="/" class="title">Kyu's Portfolio :3</a>
-    <div class="menu">
-        <a href="hall">Kyuties</a>
-        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
-    </div>
-</div>
+{{ navbar(showAbout=false) }}
 
 <div class="hero">
     <div>
         <h1 class="hero-title">About me.</h1>
 
-        <p>Hey there, I'm Kyu! 💕</p>
+        <p>Hey, I'm Kyu! 💕</p>
         <p>I'm a 24-year-old full-stack developer from Germany who loves to play around with new technologies and aquire new skills ✨</p>
 
         <h1 class="category">Things I know</h1>
 
         <p>I've played around with many programming languages and tech-stacks but I'm most proficient in C#, using EntityFramework as a database mapper and Angular as a frontend framework.</p>
-        <p>In my free time i currently do a lot in linux — specifically NixOs — as I currently use it as a daily driver on my laptop. <img src="assets/lenix.png" class="emoji"></img></p>
+        <p>In my free time i currently do a lot in linux — specifically NixOs — as I currently use it as a daily driver on my laptop. <img src="{{ "assets/lenix.png" | url }}" class="emoji"></img></p>
         <p>Other than that i host a little proxmox server with lots of virtual machines and lxc containers that i use to host services i love and try out new things that i find fascinating!</p>
 
         <h1 class="category">Things I do</h1>
@@ -92,17 +64,9 @@
 
 
     </div>
-    <div class="blob-cont">
-        <div class="white blob"></div>
-        <div class="red blob"></div>
-        <div class="orange blob"></div>
-        <div class="pink blob"></div>
-    </div>
-
+    {% include "src/partials/blob.html" %}
 </div>
 
 <div style="margin-top: 5vh">
     <br>
 </div>
-</body>
-</html>

@@ -1,9 +1,16 @@
 {
-	"dependencies": {
-		"gh-pages": "^6.0.0"
-	},
-
-	"scripts": {
-		"deploy": "gh-pages -d ."
-	}
+  "name": "11ty",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "env NODE_ENV=production npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
 }
