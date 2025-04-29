@@ -1,13 +1,43 @@
----
-title: "Kyu's Portfolio :3"
-layout: base.njk
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kyu&#39;s Portfolio :3</title>
+    <link rel="stylesheet" href="/portfolio/assets/style.css" />
 
-{% from "src/partials/cards.njk" import card %}
-{% from "src/partials/navbar.njk" import navbar %}
+    <link rel="icon"
+          type="image/png"
+          href="https://avatars.githubusercontent.com/u/43815343?v=4">
+
+    <meta property="og:title" content="Kyu&#39;s Portfolio :3">
+    <meta property="og:url" content="https://kyuti.es/" />
+    <meta property="og:image" content="https://kyuti.es/favicon.ico" />
+    <meta name="theme-color" content="#B018EC">
+    <meta property="og:site_name" content="Kyuti.es">
+
+    <style>
+      img.emoji {
+        height: 1.1em;
+        width: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    
 
 
-{{ navbar(title) }}
+
+
+
+<div class="nav">
+    <a class="title" href="/portfolio/">Kyu&#39;s Portfolio :3</a>
+    <div class="menu">
+         <a href="/portfolio/about">About Me</a> 
+         <a href="/portfolio/hall">Kyuties</a> 
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+
 
   <div class="hero">
     <div>
@@ -16,7 +46,12 @@ layout: base.njk
       <p>I'm still working on this right now, but i hope to get this finished soon :3</p>
       <p>For now, you can just sit here and look at the pretty colors moving to the right.</p>
     </div>
-    {% include "src/partials/blob.html" %}
+    <div class="blob-cont">
+  <div class="white blob"></div>
+  <div class="red blob"></div>
+  <div class="orange blob"></div>
+  <div class="pink blob"></div>
+</div>
   </div>
 
   <div style="margin-top: 15vh"></div>
@@ -31,7 +66,16 @@ layout: base.njk
     </div>
 
     <div id="column-l" class="cards-column">
-      {% call card("Kyus Ax-Shell", "https://github.com/HeyImKyu/Ax-Shell") %}
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/HeyImKyu/Ax-Shell'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">Kyus Ax-Shell</h1>
+  
         <p>My heavily modified fork of <a class="link" href="https://github.com/Axenide/">Axenide's</a> Ax-Shell</p>
         <p>Ax-Shell is a bar for the <a class="link" href="https://hyprland.org/">Hyprland</a> window manager</p>
         <p>A lot of my implementation has been merged into the base implementation now, but i still like to keep working on my own fork for my custom needs and wants</p>
@@ -41,9 +85,20 @@ layout: base.njk
           <img style="max-width: 85%; max-height: 75%;"
             src="https://github.com/user-attachments/assets/f52da9e7-31dd-4e7f-b0bb-f859816cde27" alt="Image of Ax-Shell">
         </center>
-      {% endcall %}
+      
+</div>
 
-      {% call card("VRCSTT", "https://github.com/HeyImKyu/VRCSTT") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/HeyImKyu/VRCSTT'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">VRCSTT</h1>
+  
         <p>This project was made to be able to use Speach-To-Text and speech recognition software with VRChat</p>
         <p>It is written in C# / WPF and utilizes <a href="https://azure.microsoft.com/en-us/products/ai-services/ai-speech" class="link">Azure AI Speech</a> to transcribe spoken words</p>
         <p>Afterwards the recognized text is sent to VRChat using the <a href="https://ccrma.stanford.edu/groups/osc/index.html" class="link">OSC protocol</a> to be displayed in-game</p>
@@ -51,9 +106,20 @@ layout: base.njk
           <img style="max-width: 85%; max-height: 75%;"
             src="https://github.com/user-attachments/assets/6dc99334-4c89-4e77-8b6b-d1420ca69a99" alt="Image of VRCSTT">
         </center>
-      {% endcall %}
+      
+</div>
 
-      {% call card("Balatro modding", "https://github.com/balamod/balamod") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/balamod/balamod'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">Balatro modding</h1>
+  
         <center>
             <img style="max-width: 85%; max-height: 75%;" src="https://www.playbalatro.com/assets/logo2-C9SU2BrI.png" alt="Balatro Logo">
         </center>
@@ -72,20 +138,42 @@ layout: base.njk
                 <li>Creator Modpack & TV Show Modpack <br/>(private for now, but worked on with the very talented <a href="https://x.com/NEAT0QUEEN" class="link">Neato</a></li>
             </ul>
         </div>
-      {% endcall %}
+      
+</div>
 
-      {% call card("Bulk Downloader for Reddit", "https://github.com/HeyImKyu/bulk-downloader-for-reddit") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/HeyImKyu/bulk-downloader-for-reddit'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">Bulk Downloader for Reddit</h1>
+  
         <p>I made a few modifications to the dependencies of Bulk Downloader for Reddit (bdfr) which was broken due to dependency issues</p>
         <p>Because of my fixes, it can now correctly be installed and used again with</p>
         <pre><code class="hero nohighlight">
     python -m pip install --index-url https://test.pypi.org/simple/
     --extra-index-url https://pypi.org/simple bdfr-kyu
         </code></pre>
-      {% endcall %}
+      
+</div>
+
     </div>
 
     <div id="column-r" class="cards-column">
-      {% call card("Nix User Repository & Fabric", "https://github.com/UwUDev/balamod") %}
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/UwUDev/balamod'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">Nix User Repository &amp; Fabric</h1>
+  
         <p><a href="https://wiki.ffpy.org/" class="link">Fabric</a> is a python library for hosting bars or arbitrary widgets in wayland compositors</p>
         <p>I improved the usability of fabric for NixOs users a lot by bringing the project to the <a href="https://github.com/nix-community/NUR" class="link">Nix User Repository</a></p>
         <p>For this i have my <a href="https://nur.nix-community.org/repos/heyimkyu/" class="link">own user repo</a> that contains the important programs and libraries for running fabric on NixOs <a href="https://github.com/HeyImKyu/nur-packages" class="link">(Source code)</a></p>
@@ -94,9 +182,20 @@ layout: base.njk
         <center>
             <iframe style="width: 100%; height: 400px;" src="https://wiki.ffpy.org/" frameborder="0"></iframe>
         </center>
-      {% endcall %}
+      
+</div>
 
-      {% call card("Unity Editor Tools", "https://heyimkyu.github.io/Kyus-Toolkit/") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://heyimkyu.github.io/Kyus-Toolkit/'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">Unity Editor Tools</h1>
+  
         <p>Although mainly made for VRChat avatar creation, these extensions come in very handy for any project that uses the <a href="https://unity.com/" class="link">Unity Engine</a></p>
         <p>Easily installable using the VRChat content creator (VCC) by just clicking one button on the <a href="https://heyimkyu.github.io/Kyus-Toolkit/" class="link">toolkit's website</a></p>
         <p>Alternatively, every plugin can be installed by itself, also by using the same website</p>
@@ -112,27 +211,65 @@ layout: base.njk
                 <li><a href="https://github.com/HeyImKyu/MatCopy" class="link">Mat Copy</a><br/>able to copy the entire material list from one object to another to avoid endless manual copy-pasting</li>
             </ul>
         </div>
-      {% endcall %}
+      
+</div>
 
-      {% call card("Nix User Repository & Fabric", "https://github.com/AUTOMATIC1111/stable-diffusion-webui") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/AUTOMATIC1111/stable-diffusion-webui'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">Nix User Repository &amp; Fabric</h1>
+  
         <p>Contributor to <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" class="link">Stable Diffusion web UI</a>, one of the best UIs to generate images using AI on your own machine</p>
         <p>I added the possibility to view created images in batch generation mode when each batch is done. <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/4178" class="link">PR #4178</a></p>
         <p>This adds a lot of usability to the frontend as you can see what is being generated and don't have to waste minutes or even hours of processing power if something isn't the way you like it</p>
-      {% endcall %}
+      
+</div>
 
-      {% call card("EntryDNS updater", "https://github.com/HeyImKyu/entrydns-updater") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/HeyImKyu/entrydns-updater'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">EntryDNS updater</h1>
+  
         <p>This scripts makes it easy to dynamically update your IP in an <a href="https://entrydns.net/" class="link">EntryDNS</a> entry when it changes</p>
         <p>Just add the API keys of your A or AAAA Records from EntryDNS into the hosts file and execute it or let it be executed by a cron job</p>
         <p>Simple as that ^-^</p>
-      {% endcall %}
+      
+</div>
 
-      {% call card("unzstd.yazi", "https://github.com/HeyImKyu/unzstd.yazi") %}
+
+      
+<div class="card-uwu " onclick="document.location = 'https://github.com/HeyImKyu/unzstd.yazi'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">unzstd.yazi</h1>
+  
         <p>A <a href="https://yazi-rs.github.io/" class="link">Yazi</a> plugin to unpack a <a href="https://facebook.github.io/zstd/" class="link">zstd</a> compressed archive</p>
         <p>Written in lua and with configurable keybinds this plugin makes it easy to work with zstd archives, so no one has to use zip archives in modern times anymore :D</p>
-      {% endcall %}
+      
+</div>
+
     </div>
   </div>
 
 
-  <script src="{{ "js/tilt.min.js" | url }}"></script>
-  <script src="{{ "js/scroll.js" | url }}"></script>
+  <script src="js/tilt.min.js"></script>
+  <script src="js/scroll.js"></script>
+
+  </body>
+</html>

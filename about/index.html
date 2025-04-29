@@ -1,12 +1,42 @@
----
-title: "Kyu's About me"
-layout: base.njk
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kyu&#39;s About me</title>
+    <link rel="stylesheet" href="/portfolio/assets/style.css" />
 
-{% from "src/partials/navbar.njk" import navbar %}
+    <link rel="icon"
+          type="image/png"
+          href="https://avatars.githubusercontent.com/u/43815343?v=4">
+
+    <meta property="og:title" content="Kyu&#39;s About me">
+    <meta property="og:url" content="https://kyuti.es/" />
+    <meta property="og:image" content="https://kyuti.es/favicon.ico" />
+    <meta name="theme-color" content="#B018EC">
+    <meta property="og:site_name" content="Kyuti.es">
+
+    <style>
+      img.emoji {
+        height: 1.1em;
+        width: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    
 
 
-{{ navbar(title, showAbout=false) }}
+
+
+<div class="nav">
+    <a class="title" href="/portfolio/">Kyu&#39;s About me</a>
+    <div class="menu">
+        
+         <a href="/portfolio/hall">Kyuties</a> 
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+
 
 <div class="hero">
     <div>
@@ -18,7 +48,7 @@ layout: base.njk
         <h1 class="category">Things I know</h1>
 
         <p>I've played around with many programming languages and tech-stacks but I'm most proficient in C#, using EntityFramework as a database mapper and Angular as a frontend framework.</p>
-        <p>In my free time i currently do a lot in linux — specifically NixOs — as I currently use it as a daily driver on my laptop. <img src="{{ "assets/lenix.png" | url }}" class="emoji"></img></p>
+        <p>In my free time i currently do a lot in linux — specifically NixOs — as I currently use it as a daily driver on my laptop. <img src="assets/lenix.png" class="emoji"></img></p>
         <p>Other than that i host a little proxmox server with lots of virtual machines and lxc containers that i use to host services i love and try out new things that i find fascinating!</p>
 
         <h1 class="category">Things I do</h1>
@@ -64,9 +94,17 @@ layout: base.njk
 
 
     </div>
-    {% include "src/partials/blob.html" %}
+    <div class="blob-cont">
+  <div class="white blob"></div>
+  <div class="red blob"></div>
+  <div class="orange blob"></div>
+  <div class="pink blob"></div>
+</div>
 </div>
 
 <div style="margin-top: 5vh">
     <br>
 </div>
+
+  </body>
+</html>
