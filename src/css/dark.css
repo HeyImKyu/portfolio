@@ -4,7 +4,7 @@
     --orange: #ffaa33;
     --white: #eaddff;
   
-    background: linear-gradient(149deg, rgba(18, 28, 81, 0.9) 0%, rgba(46, 23, 55, 0.9) 100%), url('noise.svg');
+    background: linear-gradient(149deg, rgba(18, 28, 81, 0.9) 0%, rgba(46, 23, 55, 0.9) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
     color: var(--white);
     transition: all 0.3s ease;
@@ -13,14 +13,14 @@
   /* Cards - smoother purple gradient, softened text */
   .dark .card-uwu,
   .dark .kyuties-card {
-    background: linear-gradient(149deg, rgba(39, 54, 124, 0.9) 0%, rgba(66, 26, 99, 0.9) 100%), url('noise.svg');
+    background: linear-gradient(149deg, rgba(39, 54, 124, 0.9) 0%, rgba(66, 26, 99, 0.9) 100%), url('/assets/noise.svg');
     color: var(--white);
     box-shadow: 0 4px 30px rgba(57, 28, 69, 0.5);
   }
   
   /* Buttons - Better contrast, slightly softer shadows */
   .dark .button {
-    background: linear-gradient(149deg, #d6b6f2 0%, #a169e6 100%), url('noise.svg');
+    background: linear-gradient(149deg, #d6b6f2 0%, #a169e6 100%), url('/assets/noise.svg');
     color: #18002a;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
   }
