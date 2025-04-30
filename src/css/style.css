@@ -64,6 +64,7 @@ html, body {
 
     background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
+    cursor: pointer;
 }
 
 .kyuties {
@@ -84,6 +85,7 @@ html, body {
 
     background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
+    cursor: pointer;
 }
 
 .card-header {
@@ -95,6 +97,8 @@ html, body {
     font-style: italic;
     font-size: 24px;
     margin: 0px;
+
+    cursor: default;
 }
 
 .card-uwu:hover {
