@@ -6,7 +6,7 @@
     --pink: #d462a6;
     --orange: #ff9b56;
     --white: #ffffff;
-    background: linear-gradient(149deg, rgba(255, 1, 1, 0.5) 0%, rgba(228, 177, 49, 0.5) 100%), url('noise.svg');
+    background: linear-gradient(149deg, rgba(255, 1, 1, 0.5) 0%, rgba(228, 177, 49, 0.5) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
     font-family: "Righteos";
     transition: all 0.3s ease;
@@ -63,7 +63,7 @@ html, body {
     border-radius: 1.4vw;
     padding: 20px;
 
-    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('noise.svg');
+    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
 }
 
@@ -83,7 +83,7 @@ html, body {
     border-radius: 1.4vw;
     padding: 20px;
 
-    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('noise.svg');
+    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
 }
 
@@ -366,7 +366,7 @@ p {
     border-radius: 13px;
     border: none;
     padding: 1em 2em;
-    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('noise.svg');
+    background: linear-gradient(149deg, rgba(232, 21, 193, 0.8) 0%, rgba(236, 148, 24, 0.8) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
