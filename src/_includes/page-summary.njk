@@ -1,0 +1,34 @@
+{# <article class="summary"> #}
+      {# <h3 class="summary_title"> #}
+        {# <a href="{{ page.url | url}}"> {{  page.data.title  }}</a> #}
+      {# </h3> #}
+      {# <p class="summary_meta">by #}
+        {# <span>{{ page.data.author }}</span> #}
+        {# on #}
+        {# <span>{{ page.data.date }}</span> #}
+      {# </p> #}
+      {# <p class="summary_description"> #}
+        {# {{ page.data.description }} #}
+      {# </p> #}
+      {# <a href="{{ page.url | url }}" class="btn btn--primary">Continue Reading</a> #}
+  {# </article> #}
+
+<div class="page-summary-card {{ extra_classes }}" onclick="document.location = '{{ page.url }}'" 
+  data-tilt
+  data-tilt-speed="1200"
+  data-tilt-easing="cubic-bezier(.03,.98,.52,.99)"
+  data-tilt-reverse="1"
+  data-tilt-max="3">
+
+  <h1 class="card-title">{{ page.data.title }}</h1>
+  <p class="page-summary-description">{{ page.data.description }}</p>
+  <div class="page-summary-bottom-container">
+    <div class="page-summary-meta-container">
+      <p>written by {{ page.data.author }}</p>
+      <p>on {{ page.data.date | date }}</p>
+    </div>
+    <img class="page-summary-card-image" src="{{ page.data.img_src }}" alt="{{ page.data.img_alt }}"/>
+  </div>
+</div>
+
+<script src="{{ "/js/tilt.min.js" | url }}"></script>

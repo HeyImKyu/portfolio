@@ -12,5 +12,8 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "nunjucks-date": "^1.5.0"
   }
 }
