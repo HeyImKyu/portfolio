@@ -1,18 +1,3 @@
-{# <article class="summary"> #}
-      {# <h3 class="summary_title"> #}
-        {# <a href="{{ page.url | url}}"> {{  page.data.title  }}</a> #}
-      {# </h3> #}
-      {# <p class="summary_meta">by #}
-        {# <span>{{ page.data.author }}</span> #}
-        {# on #}
-        {# <span>{{ page.data.date }}</span> #}
-      {# </p> #}
-      {# <p class="summary_description"> #}
-        {# {{ page.data.description }} #}
-      {# </p> #}
-      {# <a href="{{ page.url | url }}" class="btn btn--primary">Continue Reading</a> #}
-  {# </article> #}
-
 <div class="page-summary-card {{ extra_classes }}" onclick="document.location = '{{ page.url }}'" 
   data-tilt
   data-tilt-speed="1200"
