@@ -1,0 +1,33 @@
+<button id="dark-toggle" onclick="toggleDarkMode()">
+    <span>"Toggle Dark Mode"</span>
+</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.getElementById('dark-toggle');
+        const html = document.documentElement;
+    
+        // Check for saved preference
+        const savedMode = localStorage.getItem('darkmode');
+        if (savedMode === 'true') {
+            html.classList.add('dark');
+            updateToggleButton(true);
+        } else if (savedMode === 'false') {
+            html.classList.remove('dark');
+            updateToggleButton(false);
+        }
+    
+        // Set up toggle
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const isDark = html.classList.toggle('dark');
+                localStorage.setItem('darkmode', isDark);
+                updateToggleButton(isDark);
+            });
+        }
+    
+        function updateToggleButton(isDark) {
+            toggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+    });
+</script>
