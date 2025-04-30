@@ -1,0 +1,15 @@
+---
+title: "Pages Overview"
+layout: base.njk
+---
+
+{% from "src/partials/navbar.njk" import navbar %}
+
+{{ navbar(title) }}
+
+<div class="pages-container">
+    {%- for page in collections.pages | reverse -%}
+      {% include "page-summary.njk" %}  
+    {%- endfor -%}
+
+</div>

@@ -1,12 +1,23 @@
+{% set test = "fdsakl" %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {# to fight against fouc :( #}
+    <script>
+      try {
+        if (localStorage.getItem('darkmode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+
     <meta charset="UTF-8" />
     <title>{{ title or "Kyuti.es" }}</title>
 
-    <link rel="stylesheet" href="{{ "/css/style.css" | url }}" />
-    <link rel="stylesheet" href="{{ "/css/dark.css" | url }}" />
-    <link rel="stylesheet" href="{{ "/css/darkmode-toggle.css" | url }}"/>
+    <link rel="stylesheet" href="{{ "/css/main.css" | url }}" />
+
+    <script src="{{ "/js/darktoggle.js" | url }}"></script>
 
     <link rel="icon"
           type="image/png"
@@ -26,6 +37,7 @@
     </style>
   </head>
   <body>
+    {% include "src/partials/darktoggle.njk" %}
     {{ content | safe }}
   </body>
 </html>
