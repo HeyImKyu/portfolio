@@ -1,33 +1,15 @@
-<button id="dark-toggle" onclick="toggleDarkMode()">
-    <span>"Toggle Dark Mode"</span>
-</button>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggle = document.getElementById('dark-toggle');
-        const html = document.documentElement;
-    
-        // Check for saved preference
-        const savedMode = localStorage.getItem('darkmode');
-        if (savedMode === 'true') {
-            html.classList.add('dark');
-            updateToggleButton(true);
-        } else if (savedMode === 'false') {
-            html.classList.remove('dark');
-            updateToggleButton(false);
-        }
-    
-        // Set up toggle
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                const isDark = html.classList.toggle('dark');
-                localStorage.setItem('darkmode', isDark);
-                updateToggleButton(isDark);
-            });
-        }
-    
-        function updateToggleButton(isDark) {
-            toggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
-        }
-    });
-</script>
+<div id="darkmode-container">
+    <label class="darkmode-label" for="darkmode-switch">
+        <input type="checkbox" id="darkmode-switch" />
+        <div class="darkmode-sunmoon">
+            <div class="darkmode-darkside"></div>
+        </div>
+        <div class="darkmode-clouds">
+            <img src="/assets/darkmode-toggle/cloud_1.svg" alt="" class="darkmode-cloud darkmode-cloud-1" />
+            <img src="/assets/darkmode-toggle/cloud_2.svg" alt="" class="darkmode-cloud darkmode-cloud-2" />
+            <img src="/assets/darkmode-toggle/cloud_3.svg" alt="" class="darkmode-cloud darkmode-cloud-3" />
+            <img src="/assets/darkmode-toggle/cloud_4.svg" alt="" class="darkmode-cloud darkmode-cloud-4" />
+            <img src="/assets/darkmode-toggle/stars.svg" alt="" class="darkmode-stars" />
+        </div>
+    </label>
+</div>

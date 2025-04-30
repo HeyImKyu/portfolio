@@ -1,12 +1,23 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
+    <script>
+      try {
+        if (localStorage.getItem('darkmode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+
     <meta charset="UTF-8" />
     <title>Kyu&#39;s About me</title>
 
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/dark.css" />
-    <link rel="stylesheet" href="/css/darkmode-toggle.css"/>
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <script src="/js/darktoggle.js"></script>
 
     <link rel="icon"
           type="image/png"
@@ -26,10 +37,7 @@
     </style>
   </head>
   <body>
-    
-
-
-<div id="darkmode-container">
+    <div id="darkmode-container">
     <label class="darkmode-label" for="darkmode-switch">
         <input type="checkbox" id="darkmode-switch" />
         <div class="darkmode-sunmoon">
@@ -44,35 +52,8 @@
         </div>
     </label>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggleSwitch = document.querySelector(
-        '.darkmode-label input[type="checkbox"]'
-        );
-        const container = document.getElementById('darkmode-container');
 
-        toggleSwitch.checked = localStorage.getItem('darkmode') === 'true';
-
-        function switchTheme(dark) {
-            if (dark) {
-                document.documentElement.classList.add("dark");
-                container.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-                container.classList.remove("dark");
-            }
-
-            localStorage.setItem('darkmode', dark);
-        }
-
-        function switchThemeListener(e) {
-            switchTheme(e.target.checked)
-        }
-
-        switchTheme(toggleSwitch.checked);
-        toggleSwitch.addEventListener("change", switchThemeListener, false);
-    });
-</script>
+    
 
 
 
