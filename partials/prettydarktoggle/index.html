@@ -1,0 +1,44 @@
+<div id="darkmode-container">
+    <label class="darkmode-label" for="darkmode-switch">
+        <input type="checkbox" id="darkmode-switch" />
+        <div class="darkmode-sunmoon">
+            <div class="darkmode-darkside"></div>
+        </div>
+        <div class="darkmode-clouds">
+            <img src="/assets/darkmode-toggle/cloud_1.svg" alt="" class="darkmode-cloud darkmode-cloud-1" />
+            <img src="/assets/darkmode-toggle/cloud_2.svg" alt="" class="darkmode-cloud darkmode-cloud-2" />
+            <img src="/assets/darkmode-toggle/cloud_3.svg" alt="" class="darkmode-cloud darkmode-cloud-3" />
+            <img src="/assets/darkmode-toggle/cloud_4.svg" alt="" class="darkmode-cloud darkmode-cloud-4" />
+            <img src="/assets/darkmode-toggle/stars.svg" alt="" class="darkmode-stars" />
+        </div>
+    </label>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleSwitch = document.querySelector(
+        '.darkmode-label input[type="checkbox"]'
+        );
+        const container = document.getElementById('darkmode-container');
+
+        toggleSwitch.checked = localStorage.getItem('darkmode') === 'true';
+
+        function switchTheme(dark) {
+            if (dark) {
+                document.documentElement.classList.add("dark");
+                container.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+                container.classList.remove("dark");
+            }
+
+            localStorage.setItem('darkmode', dark);
+        }
+
+        function switchThemeListener(e) {
+            switchTheme(e.target.checked)
+        }
+
+        switchTheme(toggleSwitch.checked);
+        toggleSwitch.addEventListener("change", switchThemeListener, false);
+    });
+</script>
