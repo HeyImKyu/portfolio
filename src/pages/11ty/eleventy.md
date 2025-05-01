@@ -1,5 +1,6 @@
 ---
 title: Using eleventy with Nunjucks to make this page
+layout: page.njk
 author: HeyImKyu
 date: 2025-04-30
 tags: ['pages', 'eleventy']
@@ -11,4 +12,4 @@ img_alt: "daff bumk"
 
 If i write a blog then the content will go here :3
 
-<a href="https://kyuti.es">also trying a link here</a>
+<a class="link" href="https://kyuti.es">also trying a link here</a>

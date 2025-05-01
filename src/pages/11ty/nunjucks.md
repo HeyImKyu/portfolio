@@ -1,5 +1,6 @@
 ---
 title: This is a page just about nunjucks
+layout: page.njk
 author: HeyImKyu
 date: 2025-05-01
 tags: ['pages', 'nunjucks']
@@ -8,7 +9,14 @@ img_src: "https://img.freepik.com/free-photo/closeup-scarlet-macaw-from-side-vie
 img_alt: "pimgim"
 ---
 
+Haiii omg
 
-If i write a blog then the content will go here :3
+so
 
-<a href="https://kyuti.es">also trying a link here</a>
+this was a crazy story to get here
+
+```java
+  public static void Main (String Args[]) {
+    Console.Out.Log('henloo');
+  }
+```

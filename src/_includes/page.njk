@@ -1,10 +1,12 @@
 ---
 layout: 'base.njk'
+show_about: true
+show_hall: true
+show_pages: true
 ---      
-<div class="page">
-    <h1 class="page-title">
-      {{ title }}
-    </h1>
 
+{% include "partials/navbar.njk" %}
+
+<div class="page-content">
     {{ content | safe }}  
 </div>
