@@ -29,6 +29,18 @@ module.exports = function(eleventyConfig) {
   const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  const checkboxMD = require("markdown-it-task-checkbox");
+  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(checkboxMD,
+    {
+      disabled: false,
+      divWrap: false,
+      divClass: 'checkbox',
+      idPrefix: 'cbx_',
+      ulClass: 'task-list',
+      liClass: 'task-list-item'
+    }
+  ));
+
   return {
     dir: {
       input: "src",   // read source files from "src"

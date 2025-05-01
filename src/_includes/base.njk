@@ -37,7 +37,7 @@
     </style>
   </head>
   <body>
-    {% if not show_about or not show_hall or not show_pages %}
+    {% if not hide_main_link %}
       <a class="main-page-link link" href="{{ "/" | url }}">
         <div class="flex">
           <div id="back-to-main-arrow"></div>

@@ -2,7 +2,7 @@
     --red: #ff5a7a;
     --pink: #c085ff;
     --orange: #ffaa33;
-    --white: #eaddff;
+    --white: #ceb0ff;
 
     background: linear-gradient(149deg, rgba(18, 28, 81, 0.9) 0%, rgba(46, 23, 55, 0.9) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
@@ -88,3 +88,11 @@
     transition: all 0.3s ease;
 }
   
+.dark #filter-icon-light {
+    visibility: collapse;
+}
+
+.dark #filter-icon-dark {
+    visibility: visible;
+    margin-left: -20px;
+}

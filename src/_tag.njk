@@ -1,0 +1,31 @@
+---
+layout: base.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  before: |
+    function(collections) {
+      return Object.keys(collections)
+        .filter(key => Array.isArray(collections[key]) && !["all", "pages"].includes(key));
+    }
+permalink: "/pages/{{ tag }}/index.html"
+eleventyComputed:
+  title: "{{ tag | title }} Overview"
+  for_tag: "{{ tag }}"
+  unlisted: true
+  show_about: true
+  show_hall: true
+  show_pages: false
+---
+
+{% include "partials/navbar.njk" %}
+{% include "partials/subpages_list.njk" %}
+
+<div class="pages-container">
+  {%- for page in collections[for_tag] | reverse -%}
+    {% include "page-summary.njk" %}
+  {%- endfor -%}
+</div>
+
+<script src="{{ "/js/tilt.min.js" | url }}"></script>
