@@ -40,7 +40,7 @@
     overflow: hidden;
 }
 
-#darkmode-container.dark .darkmode-label {
+.dark .darkmode-label {
     border: var(--darkmode-toggle-border-width) solid var(--darkmode-tooggle-border-color-dark);
 }
 
