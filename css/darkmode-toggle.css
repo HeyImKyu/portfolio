@@ -55,7 +55,7 @@
     transition: var(--darkmode-toggle-transition);
 }
 
-#darkmode-container.dark .darkmode-label::before {
+.dark .darkmode-label::before {
     opacity: 1;
 }
 
@@ -75,7 +75,7 @@
     box-shadow: 0px 0px 11.7px 0px #FFC187, 0px 0px 20px 0px #ffc18768, -2px -2px 5px 0px #ffab5c inset;
 }
 
-#darkmode-container.dark .darkmode-sunmoon {
+.dark .darkmode-sunmoon {
     left: calc(100% - var(--darkmode-toggle-sunmoon-size) - var(--darkmode-toggle-switch-padding-x));
     background-color: #dee5f3;
     box-shadow: 0px 0px 51.7px 0px #dee5f3;
@@ -92,7 +92,7 @@
     transition: var(--darkmode-toggle-transition);
 }
 
-#darkmode-container.dark .darkmode-darkside {
+.dark .darkmode-darkside {
     background-color: #565c6b;
 }
 
@@ -131,23 +131,23 @@
 }
 
 
-#darkmode-container.dark .darkmode-cloud-1 {
+.dark .darkmode-cloud-1 {
     bottom: -35%;
     left: -110px;
 }
 
-#darkmode-container.dark .darkmode-cloud-2 {
+.dark .darkmode-cloud-2 {
     bottom: -15%;
     left: -110px;
     transition: all 0.7s ease;
 }
 
-#darkmode-container.dark .darkmode-cloud-3 {
+.dark .darkmode-cloud-3 {
     bottom: -15%;
     right: -110px;
 }
 
-#darkmode-container.dark .darkmode-cloud-4 {
+.dark .darkmode-cloud-4 {
     bottom: -5%;
     right: -110px;
     transition: all 0.7s ease;
@@ -162,6 +162,6 @@
     transition: var(--darkmode-toggle-transition);
 }
 
-#darkmode-container.dark .darkmode-stars {
+.dark .darkmode-stars {
     top: 70%;
 }
