@@ -6,7 +6,7 @@ layout: base.njk
 {% from "src/partials/cards.njk" import kyuties_card %}
 {% from "src/partials/navbar.njk" import navbar %}
 
-{{ navbar(showHall=false) }}
+{{ navbar(title, showHall=false) }}
 
 <div class="kyuties">
   {% call kyuties_card(
