@@ -37,7 +37,7 @@
     </style>
   </head>
   <body>
-    {% if is_main !== 'true' %}
+    {% if not show_about or not show_hall or not show_pages %}
       <a class="main-page-link link" href="{{ "/" | url }}">
         <div class="flex">
           <div id="back-to-main-arrow"></div>
@@ -46,7 +46,7 @@
       </a>
     {% endif %}
 
-    {% include "src/partials/darktoggle.njk" %}
+    {% include "partials/darktoggle.njk" %}
     {{ content | safe }}
   </body>
 </html>

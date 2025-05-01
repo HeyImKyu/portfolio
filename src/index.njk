@@ -1,13 +1,14 @@
 ---
 title: "Kyu's Portfolio :3"
 layout: base.njk
-is_main: 'true'
+show_about: true
+show_hall: true
+show_pages: true
 ---
 
-{% from "src/partials/cards.njk" import card %}
-{% from "src/partials/navbar.njk" import navbar %}
+{% from "partials/cards.njk" import card %}
 
-{{ navbar(title) }}
+{% include "partials/navbar.njk" %}
 
   <div class="hero">
     <div>
@@ -16,7 +17,7 @@ is_main: 'true'
       <p>I'm still working on this right now, but i hope to get this finished soon :3</p>
       <p>For now, you can just sit here and look at the pretty colors moving to the right.</p>
     </div>
-    {% include "src/partials/blob.html" %}
+    {% include "partials/blob.html" %}
   </div>
 
   <div style="margin-top: 15vh"></div>

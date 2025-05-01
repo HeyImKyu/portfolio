@@ -1,12 +1,14 @@
 ---
 title: "Kyu's Kyuties :3"
 layout: base.njk
+show_about: true
+show_hall: false
+show_pages: true
 ---
 
-{% from "src/partials/cards.njk" import kyuties_card %}
-{% from "src/partials/navbar.njk" import navbar %}
+{% from "partials/cards.njk" import kyuties_card %}
 
-{{ navbar(title, showHall=false) }}
+{% include "partials/navbar.njk" %}
 
 <div class="kyuties">
   {% call kyuties_card(

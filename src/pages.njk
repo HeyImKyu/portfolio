@@ -1,11 +1,12 @@
 ---
 title: "Pages Overview"
 layout: base.njk
+show_about: true
+show_hall: true
+show_pages: false
 ---
 
-{% from "src/partials/navbar.njk" import navbar %}
-
-{{ navbar(title) }}
+{% include "partials/navbar.njk" %}
 
 <div class="pages-container">
     {%- for page in collections.pages | reverse -%}

@@ -1,0 +1,11 @@
+<div class="nav">
+    <div class="title">{{ title }}</div>
+
+    <div class="menu">
+        {% if show_about %} <a href="{{ "/about" | url }}">About Me</a> {% endif %}
+        {% if show_hall %} <a href="{{ "/hall" | url }}">Kyuties</a> {% endif %}
+        {% if show_pages %} <a href="{{ "/pages" | url }}">Pages</a> {% endif %}
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+

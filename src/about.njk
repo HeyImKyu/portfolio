@@ -1,11 +1,12 @@
 ---
 title: "Kyu's About me"
 layout: base.njk
+show_about: false
+show_hall: true
+show_pages: true
 ---
 
-{% from "src/partials/navbar.njk" import navbar %}
-
-{{ navbar(title, showAbout=false) }}
+{% include "partials/navbar.njk" %}
 
 <div class="hero">
     <div>
@@ -63,7 +64,7 @@ layout: base.njk
 
 
     </div>
-    {% include "src/partials/blob.html" %}
+    {% include "partials/blob.html" %}
 </div>
 
 <div style="margin-top: 5vh">
