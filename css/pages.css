@@ -71,3 +71,10 @@
   margin: 0;
 }
 
+.page-content {
+  font-size: 24px;
+}
+
+.page-content pre code {
+  font-size: 20px;
+}

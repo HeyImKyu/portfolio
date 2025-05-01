@@ -1,2 +1,80 @@
-<p>If i write a blog then the content will go here :3</p>
-<p><a href="https://kyuti.es">also trying a link here</a></p>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <script>
+      try {
+        if (localStorage.getItem('darkmode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>Using eleventy with Nunjucks to make this page</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <script src="/js/darktoggle.js"></script>
+
+    <link rel="icon"
+          type="image/png"
+          href="https://avatars.githubusercontent.com/u/43815343?v=4">
+
+    <meta property="og:title" content="Using eleventy with Nunjucks to make this page">
+    <meta property="og:url" content="https://kyuti.es/" />
+    <meta property="og:image" content="https://kyuti.es/favicon.ico" />
+    <meta name="theme-color" content="#B018EC">
+    <meta property="og:site_name" content="Kyuti.es">
+
+    <style>
+      img.emoji {
+        height: 1.1em;
+        width: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    
+
+    <div id="darkmode-container">
+    <label class="darkmode-label" for="darkmode-switch">
+        <input type="checkbox" id="darkmode-switch" />
+        <div class="darkmode-sunmoon">
+            <div class="darkmode-darkside"></div>
+        </div>
+        <div class="darkmode-clouds">
+            <img src="/assets/darkmode-toggle/cloud_1.svg" alt="" class="darkmode-cloud darkmode-cloud-1" />
+            <img src="/assets/darkmode-toggle/cloud_2.svg" alt="" class="darkmode-cloud darkmode-cloud-2" />
+            <img src="/assets/darkmode-toggle/cloud_3.svg" alt="" class="darkmode-cloud darkmode-cloud-3" />
+            <img src="/assets/darkmode-toggle/cloud_4.svg" alt="" class="darkmode-cloud darkmode-cloud-4" />
+            <img src="/assets/darkmode-toggle/stars.svg" alt="" class="darkmode-stars" />
+        </div>
+    </label>
+</div>
+
+          
+
+<div class="nav">
+    <div class="title">Using eleventy with Nunjucks to make this page</div>
+
+    <div class="menu">
+         <a href="/about">About Me</a> 
+         <a href="/hall">Kyuties</a> 
+         <a href="/pages">Pages</a> 
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+
+
+
+<div class="page-content">
+    <p>If i write a blog then the content will go here :3</p>
+<p><a class="link" href="https://kyuti.es">also trying a link here</a></p>
+  
+</div>
+
+  </body>
+</html>
