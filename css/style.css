@@ -460,3 +460,7 @@ ul.socials {
 .flex {
     display: flex;
 }
+
+ul {
+    list-style-type: none;
+}
