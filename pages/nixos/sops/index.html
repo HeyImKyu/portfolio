@@ -1,0 +1,135 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <script>
+      try {
+        if (localStorage.getItem('darkmode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>Installing and using sops.nix in NixOS</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <script src="/js/darktoggle.js"></script>
+
+    <link rel="icon"
+          type="image/png"
+          href="https://avatars.githubusercontent.com/u/43815343?v=4">
+
+    <meta property="og:title" content="Installing and using sops.nix in NixOS">
+    <meta property="og:url" content="https://kyuti.es/" />
+    <meta property="og:image" content="https://kyuti.es/favicon.ico" />
+    <meta name="theme-color" content="#B018EC">
+    <meta property="og:site_name" content="Kyuti.es">
+
+    <style>
+      img.emoji {
+        height: 1.1em;
+        width: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    
+      <a class="main-page-link link" href="/">
+        <div class="flex">
+          <div id="back-to-main-arrow"></div>
+          back to main page
+        </div>
+      </a>
+    
+
+    <div id="darkmode-container">
+    <label class="darkmode-label" for="darkmode-switch">
+        <input type="checkbox" id="darkmode-switch" />
+        <div class="darkmode-sunmoon">
+            <div class="darkmode-darkside"></div>
+        </div>
+        <div class="darkmode-clouds">
+            <img src="/assets/darkmode-toggle/cloud_1.svg" alt="" class="darkmode-cloud darkmode-cloud-1" />
+            <img src="/assets/darkmode-toggle/cloud_2.svg" alt="" class="darkmode-cloud darkmode-cloud-2" />
+            <img src="/assets/darkmode-toggle/cloud_3.svg" alt="" class="darkmode-cloud darkmode-cloud-3" />
+            <img src="/assets/darkmode-toggle/cloud_4.svg" alt="" class="darkmode-cloud darkmode-cloud-4" />
+            <img src="/assets/darkmode-toggle/stars.svg" alt="" class="darkmode-stars" />
+        </div>
+    </label>
+</div>
+
+          
+
+<div class="nav">
+    <div class="title">Installing and using sops.nix in NixOS</div>
+
+    <div class="menu">
+         <a href="/about">About Me</a> 
+         <a href="/hall">Kyuties</a> 
+         <a href="/pages/pages">Pages</a> 
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+
+
+
+<div class="page-content">
+    <p><i>I'm just gonna put this here because i just know I'm gonna foget:</i></p>
+<p>How to do secrets-management:</p>
+<p>Get a key with age:</p>
+<pre class="language-bash"><code class="language-bash">rage-keygen <span class="token parameter variable">-o</span> ~/secrets/age/keys.txt</code></pre>
+<details>
+<summary><b>This is now deprecated because i found a cooler way of doing it.</b></summary>
+<p>Then grab the secrets.yaml file from vaultwarden that is configured something like this:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">ariarpc_secret</span><span class="token punctuation">:</span> <span class="token string">"my-super-secret-token"</span>
+<span class="token key atrule">key_in_yaml</span><span class="token punctuation">:</span> <span class="token string">"strongpassword123"</span></code></pre>
+<p>Run:</p>
+<pre class="language-bash"><code class="language-bash">sops <span class="token parameter variable">--encrypt</span> <span class="token parameter variable">--age</span> <span class="token operator">&lt;</span>pub-age-key<span class="token operator">></span> secrets.yaml <span class="token operator">></span> secrets_enc.yaml
+<span class="token function">rm</span> secrets.yaml
+<span class="token function">mv</span> secrets_enc.yaml secrets.yaml</code></pre>
+</details>
+<p>Run <code>sops</code> on the secrets.yaml file:</p>
+<pre class="language-bash"><code class="language-bash">sops secrets.yaml</code></pre>
+<p>If envvar SOPS_AGE_KEY_FILE is set to the right path of the age key, it should decrypt and encrypt it automatically.</p>
+<details>
+<summary><b>Arbitrary data that isn't yaml</b></summary>
+<p>Apparently the key file isn't found even with the envvar if trying to encrypt arbitrary data.
+For this purpose this command can be used:</p>
+<pre class="language-bash"><code class="language-bash">sops <span class="token parameter variable">--age</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">grep</span> <span class="token parameter variable">-o</span> <span class="token string">'age1[^ ]*'</span> <span class="token string">"<span class="token variable">$SOPS_AGE_KEY_FILE</span>"</span><span class="token variable">)</span></span>"</span> <span class="token parameter variable">-e</span> input-file <span class="token operator">></span> output-file</code></pre>
+<p>In nix arbitrary data then has to be declared like this in sops:</p>
+<pre class="language-nix"><code class="language-nix">sops <span class="token operator">=</span> <span class="token punctuation">{</span>
+  secrets <span class="token operator">=</span> <span class="token punctuation">{</span>
+    smb<span class="token operator">-</span>credentials<span class="token operator">-</span>kyu <span class="token operator">=</span> <span class="token punctuation">{</span>
+      format <span class="token operator">=</span> <span class="token string">"binary"</span><span class="token punctuation">;</span>
+      sopsFile <span class="token operator">=</span> <span class="token url">./smb-credentials-kyu</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Like this we can save save whole secrets-files, e.g. in this example a credentials file.</p>
+</details>
+<p>Then define the secret in flakes/modules/home-manager/secrets-management/default.nix like:</p>
+<pre class="language-nix"><code class="language-nix">sops <span class="token operator">=</span> <span class="token punctuation">{</span>
+	age<span class="token punctuation">.</span>keyFile <span class="token operator">=</span> <span class="token string">"/home/kyu/secrets/age/keys.txt"</span><span class="token punctuation">;</span> <span class="token comment"># must have no password!</span>
+	defaultSopsFile <span class="token operator">=</span> <span class="token url">./secrets.yaml</span><span class="token punctuation">;</span>
+	secrets <span class="token operator">=</span> <span class="token punctuation">{</span>
+		ariarpc <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment"># put all custom secrets from secrets.yaml here</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>They can then be used during runtime like this in homemanager/nix files:</p>
+<pre class="language-bash"><code class="language-bash">aria2c --rpc-secret<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> $<span class="token punctuation">{</span>config.sops.secrets.ariarpc.path<span class="token punctuation">}</span><span class="token variable">)</span></span></code></pre>
+<p>Or just manually read from the file in:</p>
+<pre class="language-bash"><code class="language-bash">~/.config/sops-nix/secrets/<span class="token operator">&lt;</span>key-from-yaml<span class="token operator">></span></code></pre>
+<p>ya i think thats it</p>
+<p>I'ma also link this video which explains at the end how to write a systemd service to get those secrets better than to just read out the files:
+<a class="link" href="https://youtu.be/G5f6GC7SnhU">https://youtu.be/G5f6GC7SnhU</a></p>
+  
+</div>
+<div class="bottom-buffer"></div>
+
+  </body>
+</html>
