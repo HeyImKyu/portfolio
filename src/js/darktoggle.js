@@ -2,17 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleSwitch = document.querySelector(
     '.darkmode-label input[type="checkbox"]'
     );
-    const container = document.getElementById('darkmode-container');
-
     toggleSwitch.checked = localStorage.getItem('darkmode') === 'true';
 
     function switchTheme(dark) {
         if (dark) {
             document.documentElement.classList.add("dark");
-            container.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
-            container.classList.remove("dark");
         }
 
         localStorage.setItem('darkmode', dark);
