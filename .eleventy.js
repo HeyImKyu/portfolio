@@ -41,6 +41,24 @@ module.exports = function(eleventyConfig) {
     }
   ));
 
+  const anchorMD = require("markdown-it-anchor");
+  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(anchorMD,
+    {
+      slugify: (s) => {
+        let slug = s
+          .toLowerCase()
+          .trim()
+          .replace(/[:]/g, "")             // remove colons
+          .replace(/\s+/g, "-")            // spaces to hyphens
+          .replace(/[^\w-]/g, "");         // strip remaining non-word chars
+
+        return slug;
+      }
+    }
+  ));
+
+  eleventyConfig.addPlugin(require("./_plugins/page_toc"));
+
   return {
     dir: {
       input: "src",   // read source files from "src"
