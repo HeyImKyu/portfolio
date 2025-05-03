@@ -46,7 +46,13 @@ html, body {
 .cards {
     display: grid;
     justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 .cards-column {
@@ -91,16 +97,23 @@ html, body {
 }
 
 .card-header {
-    grid-column: 2 / span 2;
+    grid-column: 1 / span 2;
     justify-content: center;
     align-content: center;
     font-family: 'Righteous';
     font-weight: 150;
     font-style: italic;
     font-size: 24px;
-    margin: 0px;
+    margin: 0 20px;
 
     cursor: default;
+}
+
+@media (min-width: 768px) {
+    .card-header {
+        grid-column: 2 / span 2;
+        margin: 0px;
+    }
 }
 
 .card-uwu:hover {
