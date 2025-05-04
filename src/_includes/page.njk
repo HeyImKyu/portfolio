@@ -7,9 +7,13 @@ show_pages: true
 
 {% include "partials/navbar.njk" %}
 
-<div class="toc">
-    <p><strong>Table of content</strong></p>
-    {% page_toc page.inputPath %}
+<div class="toc-flex">
+    <div class="toc">
+        <p><strong>Table of content</strong></p>
+        {% page_toc page.inputPath %}
+    </div>
+
+    {% include "partials/blob.html" %}
 </div>
 
 <div class="page-content">
