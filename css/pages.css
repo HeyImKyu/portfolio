@@ -6,6 +6,7 @@
   min-height: 100vh; /* Ensures the container can grow vertically */
   align-items: center; /* Center children horizontally */
   overflow-x: hidden;  /* Prevent horizontal scrollbars */
+  margin: 20px;
 }
 
 .page-summary-card {
@@ -72,7 +73,7 @@
 }
 
 .page-content {
-  font-size: 24px;
+  font-size: 20px;
   margin: 0 8vw;
   padding: 40px;
 
@@ -116,9 +117,14 @@
   height: 40px;
 }
 
-details {
+details, 
+details summary {
   margin-left: 20px;
   cursor: pointer;
+}
+
+details * {
+  cursor: default;
 }
 
 .subpages-list {
@@ -145,4 +151,35 @@ details {
 
 #filter-icon-dark {
   visibility: collapse;
+}
+
+:not(pre) > code {
+  padding: 2px 4px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.toc {
+  margin:0;
+  margin-bottom: 2em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.toc .h1 {
+  font-size: 1.5em;
+  margin-left: -1.6em;
+}
+
+.toc .h2 {
+  font-size: 1.2em;
+  margin-left: -1em;
+}
+
+.toc .h3 {
+  font-size: 1em;
+  margin-left: 0;
 }

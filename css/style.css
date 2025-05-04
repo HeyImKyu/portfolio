@@ -7,7 +7,7 @@
     --white: #ffffff;
     background: linear-gradient(149deg, rgba(255, 1, 1, 0.5) 0%, rgba(228, 177, 49, 0.5) 100%), url('/assets/noise.svg');
     background-attachment: fixed;
-    font-family: "Righteos";
+    font-family: "Poppins";
     transition: all 0.3s ease;
 }
 
@@ -476,4 +476,8 @@ ul.socials {
 
 ul {
     list-style-type: none;
+}
+
+ul.markers {
+    list-style-type: circle;
 }
