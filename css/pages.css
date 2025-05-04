@@ -159,6 +159,17 @@ details * {
   border-radius: 4px;
 }
 
+.toc-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.toc-flex > .blob-cont {
+  margin-bottom: 10em;
+}
+
 .toc {
   margin:0;
   margin-bottom: 2em;
