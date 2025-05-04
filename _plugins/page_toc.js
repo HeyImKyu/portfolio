@@ -12,7 +12,7 @@ module.exports = function(eleventyConfig) {
 
     const slugMap = {};
     const md = markdownIt({
-      html: true
+      html: false,
     }).use(markdownItAnchor, {
       slugify: s => {
         let slug = s

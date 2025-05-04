@@ -44,6 +44,7 @@ module.exports = function(eleventyConfig) {
   const anchorMD = require("markdown-it-anchor");
   eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(anchorMD,
     {
+      html: false,
       slugify: (s) => {
         let slug = s
           .toLowerCase()
