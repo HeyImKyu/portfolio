@@ -4,7 +4,7 @@ layout: page.njk
 author: HeyImKyu
 date: 2025-02-19
 tags: [ 'pages', 'nixos' ]
-description: If you're curious how i made this page, have a look
+description: This is how i use sops.nix in my NixOS system. It's a bit complicated and a bit all over the place, but i really wanted to document it for anyone out there :3
 img_alt: "sops nix"
 ---
 
