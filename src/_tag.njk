@@ -4,11 +4,6 @@ pagination:
   data: collections
   size: 1
   alias: tag
-  before: |
-    function(collections) {
-      return Object.keys(collections)
-        .filter(key => Array.isArray(collections[key]) && !["all", "pages"].includes(key));
-    }
 permalink: "/pages/{{ tag }}/index.html"
 eleventyComputed:
   title: "{{ tag | title }} Overview"
