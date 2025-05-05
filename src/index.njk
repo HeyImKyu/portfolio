@@ -110,15 +110,6 @@ hide_main_link: true
             </ul>
         </div>
       {% endcall %}
-
-      {% call card("Bulk Downloader for Reddit", "https://github.com/HeyImKyu/bulk-downloader-for-reddit") %}
-        <p>I made a few modifications to the dependencies of Bulk Downloader for Reddit (bdfr) which was broken due to dependency issues</p>
-        <p>Because of my fixes, it can now correctly be installed and used again with</p>
-        <pre><code class="hero language-bash">
-    python -m pip install --index-url https://test.pypi.org/simple/
-    --extra-index-url https://pypi.org/simple bdfr-kyu
-        </code></pre>
-      {% endcall %}
     </div>
 
     <div id="column-r" class="cards-column">
@@ -171,6 +162,15 @@ hide_main_link: true
       {% call card("unzstd.yazi", "https://github.com/HeyImKyu/unzstd.yazi") %}
         <p>A <a href="https://yazi-rs.github.io/" class="link">Yazi</a> plugin to unpack a <a href="https://facebook.github.io/zstd/" class="link">zstd</a> compressed archive</p>
         <p>Written in lua and with configurable keybinds this plugin makes it easy to work with zstd archives, so no one has to use zip archives in modern times anymore :D</p>
+      {% endcall %}
+
+      {% call card("Bulk Downloader for Reddit", "https://github.com/HeyImKyu/bulk-downloader-for-reddit") %}
+        <p>I made a few modifications to the dependencies of Bulk Downloader for Reddit (bdfr) which was broken due to dependency issues</p>
+        <p>Because of my fixes, it can now correctly be installed and used again with</p>
+        <pre><code class="hero language-bash">
+    python -m pip install --index-url https://test.pypi.org/simple/
+    --extra-index-url https://pypi.org/simple bdfr-kyu
+        </code></pre>
       {% endcall %}
     </div>
   </div>
