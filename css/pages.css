@@ -194,3 +194,44 @@ details * {
   font-size: 1em;
   margin-left: 0;
 }
+
+.hidden {
+  display: none;
+}
+
+.copy-button {
+  background-color: #282C34;
+  color: #A3A9B6;
+  font-size: 16px;
+  border: 3px solid transparent;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+}
+
+.reverse-flex {
+  position: relative;
+  top: 13px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-bubble {
+  position: absolute;
+  background: #282C34;
+  color: #A3A9B6;
+  padding: 6px;
+  border-radius: 0.3em;
+  font-size: 16px;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.copy-bubble::after {
+  content: '';
+  position: absolute;
+}

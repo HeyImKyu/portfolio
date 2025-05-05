@@ -80,6 +80,8 @@
 
 
 
+<script src="/js/copytext.js"></script>
+
 <div class="toc-flex">
     <div class="toc">
         <p><strong>Table of content</strong></p>
@@ -129,6 +131,9 @@ She was using <a href="https://www.getzola.org/" class="link">Zola</a> at the ti
 <summary>
 So first of all, we have a <code>base.njk</code>:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -157,6 +162,9 @@ The actual content of the main page is then stored in an `index.njk` that uses t
 <summary>
 See here:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html">---
 title: "Kyu's Portfolio :3"
 layout: base.njk
@@ -219,6 +227,9 @@ hide_main_link: true
 <summary>
 The layout for the darkmode toggle itself is just an html file:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>darkmode-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>darkmode-label<span class="token punctuation">"</span></span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>darkmode-switch<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>darkmode-switch<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
@@ -240,6 +251,9 @@ The layout for the darkmode toggle itself is just an html file:
 <summary>
 That is then styled with a rather complicated css file:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span>
     <span class="token property">--darkmode-toggle-bg-color</span><span class="token punctuation">:</span> #cde7ff<span class="token punctuation">;</span>
     <span class="token property">--darkmode-toggle-switch-width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
@@ -411,15 +425,24 @@ That is then styled with a rather complicated css file:
 <p>What's interesting about this part is the logic behind it:</p>
 <p>First of all, we need to tell 11ty that we want to store a variable.</p>
 <p>We can do that with a file in <code>_data</code>, in my case <code>_data/darktoggle.js</code>:</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span>  <span class="token punctuation">{</span>
   <span class="token literal-property property">darkmode</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>The real logic then is contained within another javascript file — <code>src/js/darktoggle.js</code> — and importet in <code>base.njk</code> using</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/js/darktoggle.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <details>
 <summary>
 The logic looks like this:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> toggleSwitch <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>
     <span class="token string">'.darkmode-label input[type="checkbox"]'</span>
@@ -447,11 +470,17 @@ The logic looks like this:
 <p>As you can see, I am storing the <code>darkmode</code> variable in local browser storage and depending on the value, I add a <code>.dark</code> class to the html.</p>
 <h2 id="23-the-navbar" tabindex="-1">2.3 The NavBar</h2>
 <p>Again, just like with the dark mode toggle, the nav bar is a partial include contained in the <code>_includes</code> folder and called upon with</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-njk"><code class="language-njk"><span class="token delimiter punctuation">{%</span> <span class="token tag keyword">include</span> <span class="token string">"partials/navbar.njk"</span> <span class="token operator">%</span><span class="token punctuation">}</span></code></pre>
 <details>
 <summary>
 It is built like this:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{ title }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 
@@ -485,6 +514,9 @@ It's actually a lot less complicated.</p>
 <summary>
 Thats exactly what i did here
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> markdownIt <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"markdown-it"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> markdownItAnchor <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"markdown-it-anchor"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -539,8 +571,10 @@ module<span class="token punctuation">.</span><span class="token function-variab
 <p>I then like to also give that md file it's tags in the header, which is not entirely necessary, but makes for some cool features like article lists (or here page overviews).</p>
 <p>So — let's explain how one of these pages works.</p>
 <p>Every page starts off with a header again:</p>
-<pre class="language-md"><code class="language-md">
-<span class="token front-matter-block"><span class="token punctuation">---</span>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
+<pre class="language-md"><code class="language-md"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml">title: Using eleventy with Nunjucks to make this page
 layout: page.njk
 author: HeyImKyu
@@ -559,6 +593,9 @@ So this was a bit of a long one.</code></pre>
 <summary>
 The <code>layout</code> parameter is using <code>page.njk</code> as a value and that file looks as follows:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html">---
 layout: 'base.njk'
 show_about: true
@@ -584,6 +621,9 @@ The layout files can be nested!</p>
 <p>and of course, we've saved the best for last:</p>
 <h3 id="253-the-article-lists--page-overviews" tabindex="-1">2.5.3 The article lists / page overviews</h3>
 <p>Okay, let's begin slowly. For every <code>tag</code> used in a md file, 11ty automatically creates a <code>collection</code>. This collection can be accessed via <code>collections.&lt;tag-name&gt;</code>, for example:</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html">{%- for page in collections.pages | reverse -%}
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>{{ page.title }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 {%- endfor -%}</code></pre>
@@ -591,6 +631,9 @@ The layout files can be nested!</p>
 <summary>
 And this is exactly what I <b>was</b> doing in <code>pages.njk</code>:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-html"><code class="language-html">---
 title: "Pages Overview"
 layout: base.njk
@@ -619,6 +662,9 @@ unlisted: true
 <summary>
 I called my file for this <code>_tag.njk</code>
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-md"><code class="language-md"><span class="token front-matter-block"><span class="token punctuation">---</span>
 <span class="token front-matter yaml language-yaml">layout: base.njk
 pagination:
@@ -649,6 +695,9 @@ eleventyComputed:
 <p>Let's go through it together:</p>
 <p>We again use the <code>base.njk</code> as a layout for our soon-to-be created file. That's easy.</p>
 <p>I think it's easier to show the <code>pagination</code> property as pseudo-code:</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-js"><code class="language-js"><span class="token function">foreach</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token keyword">var</span> tag <span class="token keyword">in</span> collections</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> overviewFile <span class="token operator">=</span> <span class="token function">create_file_with</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"{{ tag | title }} Overview"</span>
@@ -679,6 +728,9 @@ eleventyComputed:
 <summary>
 Finally, here's the full file:
 </summary>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
 <pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">eleventyConfig</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> passthroughs <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token string">"src/assets"</span><span class="token punctuation">,</span>
