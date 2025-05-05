@@ -6,7 +6,7 @@ module.exports = function(eleventyConfig) {
   ]
   
   const config = {
-    "testglobal": "meowmeow",
+    "copy_button_text": "Copy code",
   };
 
   // ------- adding the stuff

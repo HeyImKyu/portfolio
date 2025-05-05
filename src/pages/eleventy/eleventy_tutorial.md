@@ -48,6 +48,9 @@ I'm going to explain the main way it's made up here.
 <summary>
 So first of all, we have a <code>base.njk</code>:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 <!DOCTYPE html>
@@ -84,6 +87,9 @@ The actual content of the main page is then stored in an `index.njk` that uses t
 <summary>
 See here:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 ---
@@ -152,6 +158,9 @@ text
 <summary>
 The layout for the darkmode toggle itself is just an html file:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 <div id="darkmode-container">
@@ -179,6 +188,9 @@ The layout for the darkmode toggle itself is just an html file:
 <summary>
 That is then styled with a rather complicated css file:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```css
 :root {
@@ -357,6 +369,9 @@ What's interesting about this part is the logic behind it:
 First of all, we need to tell 11ty that we want to store a variable.
 
 We can do that with a file in `_data`, in my case `_data/darktoggle.js`:
+
+{% include "partials/copy_code.njk" %}
+
 ```js
 module.exports =  {
   darkmode: false
@@ -364,6 +379,9 @@ module.exports =  {
 ```
 
 The real logic then is contained within another javascript file — `src/js/darktoggle.js` — and importet in `base.njk` using
+
+{% include "partials/copy_code.njk" %}
+
 ```html
 <script src="{{ "/js/darktoggle.js" | url }}"></script>
 ```
@@ -372,6 +390,9 @@ The real logic then is contained within another javascript file — `src/js/dark
 <summary>
 The logic looks like this:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```js
 document.addEventListener('DOMContentLoaded', () => {
@@ -406,6 +427,9 @@ As you can see, I am storing the `darkmode` variable in local browser storage an
 ## 2.3 The NavBar
 
 Again, just like with the dark mode toggle, the nav bar is a partial include contained in the `_includes` folder and called upon with
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```njk
 {% include "partials/navbar.njk" %}
@@ -416,6 +440,9 @@ Again, just like with the dark mode toggle, the nav bar is a partial include con
 <summary>
 It is built like this:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 <div class="nav">
@@ -465,6 +492,9 @@ I got heavily inspired by the <a href="https://github.com/mozilla/nunjucks/blob/
 <summary>
 Thats exactly what i did here
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```js
 const fs = require("fs");
@@ -531,8 +561,11 @@ I then like to also give that md file it's tags in the header, which is not enti
 So — let's explain how one of these pages works.
 
 Every page starts off with a header again:
-```md
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
+```md
 ---
 title: Using eleventy with Nunjucks to make this page
 layout: page.njk
@@ -556,6 +589,9 @@ It consists of a bunch of properties, all of which are used either on the page i
 <summary>
 The <code>layout</code> parameter is using <code>page.njk</code> as a value and that file looks as follows:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 ---
@@ -590,6 +626,8 @@ and of course, we've saved the best for last:
 ### 2.5.3 The article lists / page overviews
 
 Okay, let's begin slowly. For every `tag` used in a md file, 11ty automatically creates a `collection`. This collection can be accessed via `collections.<tag-name>`, for example:
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 {%- for page in collections.pages | reverse -%}
@@ -602,6 +640,9 @@ Okay, let's begin slowly. For every `tag` used in a md file, 11ty automatically 
 <summary>
 And this is exactly what I <b>was</b> doing in <code>pages.njk</code>:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```html
 ---
@@ -637,6 +678,9 @@ So instead 11ty offers this cool technique how you can create dynamic pages.
 <summary>
 I called my file for this <code>_tag.njk</code>
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```md
 ---
@@ -674,8 +718,10 @@ Let's go through it together:
 We again use the `base.njk` as a layout for our soon-to-be created file. That's easy. 
 
 I think it's easier to show the `pagination` property as pseudo-code:
-{% raw %}
 
+{% include "partials/copy_code.njk" %}
+
+{% raw %}
 ```js
 foreach (var tag in collections) {
     var overviewFile = create_file_with({
@@ -718,6 +764,9 @@ I'm also passing through some values directly to the output folder and i tried a
 <summary>
 Finally, here's the full file:
 </summary>
+
+{% include "partials/copy_code.njk" %}
+
 {% raw %}
 ```js
 module.exports = function(eleventyConfig) {
