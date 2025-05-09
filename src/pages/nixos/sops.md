@@ -8,6 +8,7 @@ description: This is how i use sops.nix in my NixOS system. It's a bit complicat
 img_alt: "sops nix"
 ---
 
+# Using sops.nix in NixOs
 
 <i>I'm just gonna put this here because i just know I'm gonna foget:</i>
 
