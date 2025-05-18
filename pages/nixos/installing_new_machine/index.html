@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <script>
+      try {
+        if (localStorage.getItem('darkmode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>Installing a new machine with my flakes</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/dark.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+    <link rel="stylesheet" href="/css/darkmode-toggle.css" />
+    <link rel="stylesheet" href="/css/prism-onedark.css" />
+
+    <script src="/js/darktoggle.js"></script>
+
+    <link rel="icon"
+          type="image/png"
+          href="https://avatars.githubusercontent.com/u/43815343?v=4">
+
+    <meta property="og:title" content="Installing a new machine with my flakes">
+    <meta property="og:url" content="https://kyuti.es/" />
+    <meta property="og:image" content="https://kyuti.es/favicon.ico" />
+    <meta name="theme-color" content="#B018EC">
+    <meta property="og:site_name" content="Kyuti.es">
+
+    <style>
+      img.emoji {
+        height: 1.1em;
+        width: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    
+      <a class="main-page-link link" href="/">
+        <div class="flex">
+          <div id="back-to-main-arrow"></div>
+          back to main page
+        </div>
+      </a>
+    
+
+    <div id="darkmode-container">
+    <label class="darkmode-label" for="darkmode-switch">
+        <input type="checkbox" id="darkmode-switch" />
+        <div class="darkmode-sunmoon">
+            <div class="darkmode-darkside"></div>
+        </div>
+        <div class="darkmode-clouds">
+            <img src="/assets/darkmode-toggle/cloud_1.svg" alt="" class="darkmode-cloud darkmode-cloud-1" />
+            <img src="/assets/darkmode-toggle/cloud_2.svg" alt="" class="darkmode-cloud darkmode-cloud-2" />
+            <img src="/assets/darkmode-toggle/cloud_3.svg" alt="" class="darkmode-cloud darkmode-cloud-3" />
+            <img src="/assets/darkmode-toggle/cloud_4.svg" alt="" class="darkmode-cloud darkmode-cloud-4" />
+            <img src="/assets/darkmode-toggle/stars.svg" alt="" class="darkmode-stars" />
+        </div>
+    </label>
+</div>
+
+          
+
+<div class="nav">
+    <div class="title">Installing a new machine with my flakes</div>
+
+    <div class="menu">
+         <a href="/about">About Me</a> 
+         <a href="/hall">Kyuties</a> 
+         <a href="/pages/pages">Pages</a> 
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+
+
+
+<script src="/js/copytext.js"></script>
+
+<div class="toc-flex">
+    <div class="toc">
+        <p><strong>Table of content</strong></p>
+        <ul class="toc"><li class="h1"><a href="#reason-im-doing-this">Reason I'm doing this</a></li>
+<li class="h1"><a href="#how-do-i-fix-this-">How do I fix this? :(</a></li>
+<li class="h1"><a href="#other-considerations">Other considerations</a></li></ul>
+    </div>
+
+    <div class="blob-cont">
+  <div class="blob" id="blob1"></div>
+  <div class="blob" id="blob2"></div>
+  <div class="blob" id="blob3"></div>
+  <div class="blob" id="blob4"></div>
+</div>
+
+</div>
+
+<div class="page-content">
+    <h1 id="reason-im-doing-this" tabindex="-1">Reason I'm doing this</h1>
+<p>Okay so, my laptop just died and i tried to just install a new NixOS 24.05 (because that was the version I originally used) and then build my flakes, but unfortunately it always failed with the same error message:</p>
+<pre class="language-bash"><code class="language-bash">error: path ‘/nix/store/9y7z0wj024np8zrhwvpz6ph6ksckiwgy-linux-6.12.20-modules-shrunk/lib’ is not <span class="token keyword">in</span> the Nix store</code></pre>
+<h1 id="how-do-i-fix-this-" tabindex="-1">How do I fix this? :(</h1>
+<p>I found the solution to this problem <a class="link" href="https://discourse.nixos.org/t/issue-building-linux-kernel-modules-after-flake-update/62322">here</a>.</p>
+<p>Simply just install NixOs 24.05, then run</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> nix-channel <span class="token parameter variable">--add</span> https://nixos.org/channels/nixos-unstable nixos</code></pre>
+<p>followed by</p>
+<div class="reverse-flex">
+    <button class="copy-button" onclick="copy_text(this)">Copy code</button>
+</div>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> nixos-rebuild-switch <span class="token parameter variable">--upgrade</span></code></pre>
+<p>With that, the NixOs version should be on the newest unstable and can then be rebuilt using the flakes from my repo.</p>
+<h1 id="other-considerations" tabindex="-1">Other considerations</h1>
+<p>One thing to also consider, is to copy the autogenerated hardware-config from <code>/etc/nixos/hardware-configuration.nix</code> to the flakes repo in <code>~/flakes/hosts/nixos/hardware-configuration.nix</code>.</p>
+<p>Without this, NixOs will still not work ^^</p>
+  
+</div>
+<div class="bottom-buffer"></div>
+
+  </body>
+</html>
