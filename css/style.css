@@ -78,6 +78,7 @@ html, body {
 .kyuties {
     display: flex;
     justify-content: space-evenly;
+    flex-flow: wrap;
 }
 
 .kyuties-card {
