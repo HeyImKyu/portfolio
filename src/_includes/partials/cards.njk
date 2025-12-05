@@ -11,7 +11,7 @@
 </div>
 {% endmacro %}
 
-{% macro kyuties_card(name, url, url_short, img_src, img_alt, description, extra_classes='') %}
+{% macro kyuties_card(name, url, url_short, img_src, img_alt, description, is_button=false, button_as_link='', extra_classes='') %}
 <div class="kyuties-card {{ extra_classes }}" onclick="document.location = '{{ url }}'" 
   data-tilt
   data-tilt-speed="1200"
@@ -20,10 +20,17 @@
   data-tilt-max="3">
 
   <h1 class="card-title">{{ name }}</h1>
-  <img class="card-image" src="{{ img_src }}" alt="{{ img_alt }}"/>
+  <img class="{{ "card-image-button" if is_button else "card-image" }}" src="{{ img_src }}" alt="{{ img_alt }}"/>
+
   <p>{{ description }}</p>
+
+  {% if button_as_link %}
+    <img class="card-link-button" }}" src="{{ button_as_link }}" alt="{{ img_alt }}"/>
+  {% else %}
   <p>
     <a class="card-link" href="{{ url }}"> {{ url_short }}</a>
   </p>
+  {% endif %}
+
 </div>
 {% endmacro %}

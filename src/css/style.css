@@ -159,6 +159,20 @@ html, body {
     box-shadow: 0 4px 80px 10px rgba(27, 26, 42, 0.35);
 }
 
+.card-link-button {
+    width: 176px;
+    height: 62px;
+    object-fit: contain;
+    box-shadow: 0 4px 80px 10px rgba(27, 26, 42, 0.35);
+}
+
+.card-image-button {
+    width: 264px;
+    height: 93px;
+    object-fit: contain;
+    box-shadow: 0 4px 80px 10px rgba(27, 26, 42, 0.35);
+}
+
 
 a.card-link {
     color: #000;
