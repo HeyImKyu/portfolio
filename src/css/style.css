@@ -164,6 +164,11 @@ html, body {
     height: 62px;
     object-fit: contain;
     box-shadow: 0 4px 80px 10px rgba(27, 26, 42, 0.35);
+    transition: transform .2s cubic-bezier(.18, .89, .32, 1.28);
+}
+
+.card-link-button:hover {
+    transform: scale(1.5);
 }
 
 .card-image-button {
@@ -178,6 +183,10 @@ a.card-link {
     color: #000;
     font-size: 2em;
     text-decoration: underline;
+}
+
+a.card-link:hover {
+    color: #c931a8;
 }
 
 /* Blobs */
