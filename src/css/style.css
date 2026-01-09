@@ -428,6 +428,14 @@ p {
     margin-top: 5vh;
 }
 
+.allergies {
+    display: inline-block;
+}
+
+.pad-left {
+    padding-left: 10px;
+}
+
 img.emoji {
     vertical-align: -10%;
 }
