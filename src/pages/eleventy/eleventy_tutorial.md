@@ -76,7 +76,7 @@ So first of all, we have a <code>base.njk</code>:
 {% endraw %}
 </details>
 
-This base-teplate is used for every page, so it includes all important head tags, the 'back to main page' link that is displayed on every page except the main page itself (hence the 'if not hide_main_link' that is being set on the main page) and the dark mode toggle that should be present on every page.
+This base-template is used for every page, so it includes all important head tags, the 'back to main page' link that is displayed on every page except the main page itself (hence the 'if not hide_main_link' that is being set on the main page) and the dark mode toggle that should be present on every page.
 
 You can get to an explanation of dark-toggle <a href="#22-the-dark-mode-toggle" class="link">here.</a>
 
