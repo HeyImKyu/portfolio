@@ -157,7 +157,7 @@ So first of all, we have a <code>base.njk</code>:
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
 </details>
-<p>This base-teplate is used for every page, so it includes all important head tags, the 'back to main page' link that is displayed on every page except the main page itself (hence the 'if not hide_main_link' that is being set on the main page) and the dark mode toggle that should be present on every page.</p>
+<p>This base-template is used for every page, so it includes all important head tags, the 'back to main page' link that is displayed on every page except the main page itself (hence the 'if not hide_main_link' that is being set on the main page) and the dark mode toggle that should be present on every page.</p>
 <p>You can get to an explanation of dark-toggle <a href="#22-the-dark-mode-toggle" class="link">here.</a></p>
 <div class="jumppoint" id="index-njk"></div>
 The actual content of the main page is then stored in an `index.njk` that uses the `base.njk` as it's `layout` parameter.
