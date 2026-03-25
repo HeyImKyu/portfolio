@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <script>
+      try {
+        if (localStorage.getItem('darkmode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+
+    
+    <meta name="darkreader-lock">
+
+    <meta charset="UTF-8" />
+    <title>NixOS-ification of fedora with chezmoi and ansible</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/dark.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+    <link rel="stylesheet" href="/css/darkmode-toggle.css" />
+    <link rel="stylesheet" href="/css/prism-onedark.css" />
+
+    <script src="/js/darktoggle.js"></script>
+
+    <link rel="icon"
+          type="image/png"
+          href="https://avatars.githubusercontent.com/u/43815343?v=4">
+
+    <meta property="og:title" content="NixOS-ification of fedora with chezmoi and ansible">
+    <meta property="og:url" content="https://kyuti.es/" />
+    <meta property="og:image" content="https://kyuti.es/favicon.ico" />
+    <meta name="theme-color" content="#B018EC">
+    <meta property="og:site_name" content="Kyuti.es">
+
+    <style>
+      img.emoji {
+        height: 1.1em;
+        width: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    
+      <a class="main-page-link link" href="/">
+        <div class="flex">
+          <div id="back-to-main-arrow"></div>
+          back to main page
+        </div>
+      </a>
+    
+
+    <div id="darkmode-container">
+    <label class="darkmode-label" for="darkmode-switch">
+        <input type="checkbox" id="darkmode-switch" />
+        <div class="darkmode-sunmoon">
+            <div class="darkmode-darkside"></div>
+        </div>
+        <div class="darkmode-clouds">
+            <img src="/assets/darkmode-toggle/cloud_1.svg" alt="" class="darkmode-cloud darkmode-cloud-1" />
+            <img src="/assets/darkmode-toggle/cloud_2.svg" alt="" class="darkmode-cloud darkmode-cloud-2" />
+            <img src="/assets/darkmode-toggle/cloud_3.svg" alt="" class="darkmode-cloud darkmode-cloud-3" />
+            <img src="/assets/darkmode-toggle/cloud_4.svg" alt="" class="darkmode-cloud darkmode-cloud-4" />
+            <img src="/assets/darkmode-toggle/stars.svg" alt="" class="darkmode-stars" />
+        </div>
+    </label>
+</div>
+
+          
+
+<div class="nav">
+    <div class="title">NixOS-ification of fedora with chezmoi and ansible</div>
+
+    <div class="menu">
+         <a href="/about">About Me</a> 
+         <a href="/hall">Kyuties</a> 
+         <a href="/pages/pages">Pages</a> 
+        <a href="https://github.com/HeyImKyu/portfolio">Source Code</a>
+    </div>
+</div>
+
+
+
+<script src="/js/copytext.js"></script>
+
+<div class="toc-flex">
+    <div class="toc">
+        <p><strong>Table of content</strong></p>
+        <ul class="toc"><li class="h1"><a href="#init">Init</a></li>
+<li class="h1"><a href="#config-file-management">Config-file management</a></li>
+<li class="h1"><a href="#automatic-install-of-packages">Automatic install of packages</a></li>
+<li class="h2"><a href="#chezmoi-scripting">Chezmoi scripting</a></li>
+<li class="h2"><a href="#the-ansible-playbook">The Ansible playbook</a></li></ul>
+    </div>
+
+    <div class="blob-cont">
+  <div class="blob" id="blob1"></div>
+  <div class="blob" id="blob2"></div>
+  <div class="blob" id="blob3"></div>
+  <div class="blob" id="blob4"></div>
+</div>
+
+</div>
+
+<div class="page-content">
+    <h1 id="init" tabindex="-1">Init</h1>
+<p>Okay, so first of all, what the heck do I mean when i say this...
+What i mean in general is:</p>
+<ul class="markers">
+  <li>I have a file that i can put my programs in that i need</li>
+  <li>If i edit it, or any programs are not installed, the system will do that for me</li>
+  <li>Also, config-file management</li>
+</ul>
+<p>First, cause it's simple, let's do</p>
+<h1 id="config-file-management" tabindex="-1">Config-file management</h1>
+<p>This is just me normally using <a class="link" href="https://www.chezmoi.io/">chezmoi</a> as intended.
+It's a really cool tool and y'all should check it out.</p>
+<p>In word that means i have a git repo of my dotfiles that is also the chezmoi folder.
+This can either be set by (i believe) <code>chezmoi init &lt;git-url&gt;</code> or just by <code>chezmoi init</code>, <code>chezmoi cd</code> and then <code>git init</code>.</p>
+<p>Then, do <code>chezmoi add &lt;config-path&gt;</code> on every file that you want to track and if you do any updates later you can simply <code>chezmoi re-add</code>.</p>
+<p>Once that is done, you basically have your dotfiles as a git-repo, can push it whereever, pull it again and so on.</p>
+<p>Now to the spicy part:</p>
+<h1 id="automatic-install-of-packages" tabindex="-1">Automatic install of packages</h1>
+<h2 id="chezmoi-scripting" tabindex="-1">Chezmoi scripting</h2>
+<p>chezmoi can automatically run shell scripts when updating packages on your machine.
+This is fully described in <a class="link" href="https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/">&quot;Use scripts to perform actions&quot;</a> in the chezmoi documentation.</p>
+<p>So basically i have a file titled <code>run_start_ansible_hash_and_install.sh.tmpl</code> that get's run anytime <code>chezmoi update</code> or <code>chezmoi apply</code> are executed.</p>
+<details>
+<summary><b>Full file here</b></summary>
+<pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-euo</span> pipefail
+
+<span class="token assign-left variable">ANSIBLE_DIR</span><span class="token operator">=</span><span class="token string">"/.ansible"</span>
+<span class="token assign-left variable">HASH_FILE</span><span class="token operator">=</span><span class="token string">"/.local/share/chezmoi_ansible_hash"</span>
+<span class="token assign-left variable">PLAYBOOKS_HASH</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> <span class="token string">"<span class="token variable">$ANSIBLE_DIR</span>"</span> <span class="token parameter variable">-type</span> f <span class="token parameter variable">-print0</span> <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-z</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token parameter variable">-0</span> sha256sum <span class="token operator">|</span> sha256sum <span class="token operator">|</span> <span class="token function">cut</span> -d<span class="token string">' '</span> <span class="token parameter variable">-f1</span><span class="token variable">)</span></span>
+
+<span class="token comment"># If ansible is not installed, install it</span>
+<span class="token keyword">if</span> <span class="token operator">!</span> <span class="token builtin class-name">command</span> <span class="token parameter variable">-v</span> ansible-playbook <span class="token operator">></span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"[chezmoi→ansible] Ansible not found. Installing..."</span>
+  <span class="token function">sudo</span> dnf <span class="token function">install</span> ansible
+<span class="token keyword">fi</span>
+
+<span class="token comment"># If the hash file doesn't exist, or if the hash changed, run ansible</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">$HASH_FILE</span>"</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$PLAYBOOKS_HASH</span>"</span> <span class="token operator">!=</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> <span class="token string">"<span class="token variable">$HASH_FILE</span>"</span><span class="token variable">)</span></span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"[chezmoi→ansible] Detected change in Ansible files. Running playbook..."</span>
+
+  <span class="token function">sudo</span> ansible-playbook <span class="token parameter variable">-v</span> <span class="token parameter variable">-i</span> <span class="token string">"<span class="token variable">$ANSIBLE_DIR</span>/inventory.ini"</span> <span class="token string">"<span class="token variable">$ANSIBLE_DIR</span>/playbook.yml"</span>
+
+  <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$PLAYBOOKS_HASH</span>"</span> <span class="token operator">></span> <span class="token string">"<span class="token variable">$HASH_FILE</span>"</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"[chezmoi→ansible] Playbook run complete. Hash updated."</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"[chezmoi→ansible] No changes in Ansible files. Skipping playbook."</span>
+<span class="token keyword">fi</span>
+</code></pre>
+</details>
+<p>As you can see, it's pretty simple (except tha hash-checking) D:</p>
+<ul class="markers">
+  <li>sh file is run</li>
+  <li>hash of ansible directory is calculated</li>
+  <li>calculated hash and saved hash from last run are compared</li>
+  <li>if they differ -> ansible is run</li>
+</ul>
+<p>which brings me to the next part</p>
+<h2 id="the-ansible-playbook" tabindex="-1">The Ansible playbook</h2>
+<details>
+<summary>
+<b>First, of course, the file itself</b>
+</summary>
+<pre class="language-yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">hosts</span><span class="token punctuation">:</span> local
+  <span class="token key atrule">become</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">ignore_errors</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">tasks</span><span class="token punctuation">:</span>
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Upgrade all packages
+      <span class="token key atrule">ansible.builtin.dnf</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> latest
+
+<span class="token comment">#---------------------- install</span>
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install base packages
+      <span class="token key atrule">ansible.builtin.dnf</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> git
+          <span class="token punctuation">-</span> curl
+          <span class="token punctuation">-</span> zsh
+          <span class="token punctuation">-</span> helix
+          <span class="token punctuation">-</span> firefox
+          <span class="token punctuation">-</span> yazi
+          <span class="token punctuation">-</span> starship
+          <span class="token punctuation">-</span> zoxide
+          <span class="token punctuation">-</span> atuin
+          <span class="token punctuation">-</span> wl<span class="token punctuation">-</span>clipboard
+          <span class="token punctuation">-</span> tailscale
+          <span class="token punctuation">-</span> stgit
+          <span class="token punctuation">-</span> 7zip
+          <span class="token punctuation">-</span> ani<span class="token punctuation">-</span>cli
+          <span class="token punctuation">-</span> btop
+          <span class="token punctuation">-</span> flatpak
+          <span class="token punctuation">-</span> fzf
+          <span class="token punctuation">-</span> grep
+          <span class="token punctuation">-</span> grimblast
+          <span class="token punctuation">-</span> hyfetch
+          <span class="token punctuation">-</span> hyprland<span class="token punctuation">-</span>devel
+          <span class="token punctuation">-</span> hyprpicker
+          <span class="token punctuation">-</span> hyprsunset
+          <span class="token punctuation">-</span> jq
+          <span class="token punctuation">-</span> just
+          <span class="token punctuation">-</span> kitty
+          <span class="token punctuation">-</span> matugen
+          <span class="token punctuation">-</span> nodejs
+          <span class="token punctuation">-</span> ImageMagick
+          <span class="token punctuation">-</span> swww
+          <span class="token punctuation">-</span> swappy
+          <span class="token punctuation">-</span> tesseract
+          <span class="token punctuation">-</span> fontforge
+          <span class="token punctuation">-</span> swaylock
+          <span class="token punctuation">-</span> sddm
+          <span class="token punctuation">-</span> cmake
+          <span class="token punctuation">-</span> steam
+          <span class="token punctuation">-</span> make
+          <span class="token punctuation">-</span> automake
+          <span class="token punctuation">-</span> gcc
+          <span class="token punctuation">-</span> kernel<span class="token punctuation">-</span>devel
+          <span class="token punctuation">-</span> xournalpp
+          <span class="token punctuation">-</span> blueman
+          <span class="token punctuation">-</span> helvum
+
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> present
+
+<span class="token comment">#------------------------- flatpak</span>
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Add Flathub remote
+      <span class="token key atrule">community.general.flatpak_remote</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> flathub
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> present
+        <span class="token key atrule">flatpakrepo_url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//flathub.org/repo/flathub.flatpakrepo
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install specific Flatpak applications
+      <span class="token key atrule">community.general.flatpak</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">""</span>
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> present
+        <span class="token key atrule">remote</span><span class="token punctuation">:</span> flathub
+      <span class="token key atrule">loop</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> com.spotify.Client
+        <span class="token punctuation">-</span> com.surfshark.Surfshark
+        <span class="token punctuation">-</span> dev.vencord.Vesktop
+        <span class="token punctuation">-</span> io.github.everestapi.Olympus
+        <span class="token punctuation">-</span> org.signal.Signal
+        <span class="token punctuation">-</span> com.visualstudio.code</code></pre>
+</details>
+<p>As you can see, two steps are defined:</p>
+<ul class="markers">
+  <li>Installing DNF packages</li>
+  <li>Installing Flatpack packages</li>
+</ul>
+<p>(Also feel free to stalk what packages i have install on all my systems lol)</p>
+<p>Ya but that's basically it and idk what to yap anymore, so I better stop now ^^</p>
+<p>Thanks for reading :3</p>
+  
+</div>
+<div class="bottom-buffer"></div>
+
+  </body>
+</html>
