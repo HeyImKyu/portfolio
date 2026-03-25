@@ -153,7 +153,7 @@ hide_main_link: true
 In the first few lines you can also see the tags for the nav-bar that will be explained <a href="#23-the-navbar" class="link">later</a>.
 
 ## 2.2 The dark mode toggle
-text
+
 <details>
 <summary>
 The layout for the darkmode toggle itself is just an html file:
