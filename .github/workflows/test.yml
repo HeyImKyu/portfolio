@@ -24,10 +24,3 @@ jobs:
         run: |
           npm ci
           npm run build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          publish_dir: ./_site
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          cname: portfolio.kyuti.es
